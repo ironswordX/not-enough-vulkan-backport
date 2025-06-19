@@ -11,7 +11,7 @@
     "adaptive_sync.MixinWindow",
     "animation.MixinSpriteAtlasTexture",
     "biome_colors.MixinBiomeColors",
-    "cloud.MixinDimensionEffectsOverworld",
+    "cloud.MixinDimensionType",
     "compat.MixinSodiumOptionsGUI",
     "fog.MixinFogRenderer",
     "fog_falloff.MixinFogRenderer",
