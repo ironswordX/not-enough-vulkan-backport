@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FogRenderer.class)
@@ -33,9 +32,10 @@ public class MixinFogRenderer {
         }
     }
 
-    @ModifyVariable(method = "updateBuffer(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V",
+    /*@ModifyVariable(method = "updateBuffer(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V",
             at = @At("HEAD"), ordinal = 2, argsOnly = true)
     private float overrideEnvironmentalStart(float original) {
+        System.out.println("rd start: " + original);
         if (SodiumExtraClientMod.options().renderSettings.fogDistance == 0) return original;
 
         int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
@@ -49,11 +49,12 @@ public class MixinFogRenderer {
     @ModifyVariable(method = "updateBuffer(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V",
             at = @At("HEAD"), ordinal = 3, argsOnly = true)
     private float overrideEnvironmentalEnd(float original) {
+        System.out.println("rd end: " + original);
         if (SodiumExtraClientMod.options().renderSettings.fogDistance == 0) return original;
 
         int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
                 ? SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.getOrDefault(Minecraft.getInstance().level.dimensionType().effectsLocation(), 0)
                 : SodiumExtraClientMod.options().renderSettings.fogDistance;
         return (fogDistance + 1) * 0.16F;
-    }
+    }*/
 }
