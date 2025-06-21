@@ -13,7 +13,7 @@
     "biome_colors.MixinBiomeColors",
     "cloud.MixinDimensionType",
     "compat.MixinSodiumOptionsGUI",
-    "fog.MixinAtmosphericFogEnvironment",
+    "fog.MixinFogEnvironment",
     "fog.MixinFogRenderer",
     "fog_falloff.MixinFogRenderer",
     "gui.MinecraftClientAccessor",

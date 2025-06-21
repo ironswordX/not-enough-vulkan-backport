@@ -20,10 +20,7 @@ public abstract class MixinOcclusionCuller {
 
     @Inject(method = "isWithinRenderDistance", at = @At(value = "HEAD"), cancellable = true)
     private static void isWithinRenderDistance(CameraTransform camera, RenderSection section, float maxDistance, CallbackInfoReturnable<Boolean> cir) {
-        int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl ?
-                SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.getOrDefault(Minecraft.getInstance().level.dimensionType().effectsLocation(), 0) :
-                SodiumExtraClientMod.options().renderSettings.fogDistance;
-        if (fogDistance == 33) {
+        if (!SodiumExtraClientMod.options().renderSettings.fog) {
             int ox = section.getOriginX() - camera.intX;
             int oz = section.getOriginZ() - camera.intZ;
             float dx = nearestToZero(ox, ox + 16) - camera.fracX;

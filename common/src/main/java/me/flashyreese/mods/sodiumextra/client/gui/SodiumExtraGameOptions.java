@@ -191,11 +191,11 @@ public class SodiumExtraGameOptions {
     }
 
     public static class RenderSettings {
-        public int fogDistance;
-        public int fogStart;
         public boolean multiDimensionFogControl;
+        public boolean fog;
+        public int fogStart;
         @SerializedName("dimensionFogDistance")
-        public Map<ResourceLocation, Integer> dimensionFogDistanceMap;
+        public Map<ResourceLocation, Integer> dimensionFogStartMap;
         public boolean lightUpdates;
         public boolean itemFrame;
         public boolean armorStand;
@@ -208,10 +208,10 @@ public class SodiumExtraGameOptions {
         public boolean playerNameTag;
 
         public RenderSettings() {
-            this.fogDistance = 0;
-            this.fogStart = 100;
             this.multiDimensionFogControl = false;
-            this.dimensionFogDistanceMap = new Object2IntArrayMap<>();
+            this.fog = true;
+            this.fogStart = 100;
+            this.dimensionFogStartMap = new Object2IntArrayMap<>();
             this.lightUpdates = true;
             this.itemFrame = true;
             this.armorStand = true;

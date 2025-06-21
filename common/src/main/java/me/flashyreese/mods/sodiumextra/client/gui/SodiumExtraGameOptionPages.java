@@ -236,18 +236,18 @@ public class SodiumExtraGameOptionPages {
         groups.add(OptionGroup.createBuilder()
                 .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
                         .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                        .setName(Component.translatable("sodium-extra.option.fog"))
+                        .setTooltip(Component.translatable("sodium-extra.option.fog.tooltip"))
+                        .setControl(TickBoxControl::new)
+                        .setBinding((options, value) -> options.renderSettings.fog = value, options -> options.renderSettings.fog)
+                        .build()
+                )
+                .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
+                        .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
                         .setName(Component.translatable("sodium-extra.option.multi_dimension_fog"))
                         .setTooltip(Component.translatable("sodium-extra.option.multi_dimension_fog.tooltip"))
                         .setControl(TickBoxControl::new)
                         .setBinding((options, value) -> options.renderSettings.multiDimensionFogControl = value, options -> options.renderSettings.multiDimensionFogControl)
-                        .build()
-                )
-                .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                        .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog_falloff").isEnabled())
-                        .setName(Component.translatable("sodium-extra.option.fog_start"))
-                        .setTooltip(Component.translatable("sodium-extra.option.fog_start.tooltip"))
-                        .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
-                        .setBinding((options, value) -> options.renderSettings.fogStart = value, options -> options.renderSettings.fogStart)
                         .build()
                 )
                 .build());
@@ -255,16 +255,16 @@ public class SodiumExtraGameOptionPages {
         if (SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl) {
             WorldDimensions
                     .keysInOrder(Stream.empty())
-                    .filter(dim -> !SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.containsKey(dim.location()))
-                    .forEach(dim -> SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.put(dim.location(), 0));
-            groups.add(SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.keySet().stream()
+                    .filter(dim -> !SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.containsKey(dim.location()))
+                    .forEach(dim -> SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.put(dim.location(), 100));
+            groups.add(SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.keySet().stream()
                     .map(identifier -> OptionImpl.createBuilder(int.class, sodiumExtraOpts)
                             .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                            .setName(Component.translatable("sodium-extra.option.fog", translatableName(identifier, "dimensions").getString()))
-                            .setTooltip(Component.translatable("sodium-extra.option.fog.tooltip"))
-                            .setControl(option -> new SliderControlExtended(option, 0, 33, 1, ControlValueFormatterExtended.fogDistance(), false))
-                            .setBinding((opts, val) -> opts.renderSettings.dimensionFogDistanceMap.put(identifier, val),
-                                    opts -> opts.renderSettings.dimensionFogDistanceMap.getOrDefault(identifier, 0))
+                            .setName(Component.translatable("sodium-extra.option.fog_start_dimension", translatableName(identifier, "dimensions").getString()))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_start_dimension.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding((opts, val) -> opts.renderSettings.dimensionFogStartMap.put(identifier, val),
+                                    opts -> opts.renderSettings.dimensionFogStartMap.getOrDefault(identifier, 100))
                             .build()
                     ).collect(
                             OptionGroup::createBuilder,
@@ -276,11 +276,11 @@ public class SodiumExtraGameOptionPages {
         } else {
             groups.add(OptionGroup.createBuilder()
                     .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                            .setName(Component.translatable("sodium-extra.option.single_fog"))
-                            .setTooltip(Component.translatable("sodium-extra.option.single_fog.tooltip"))
-                            .setControl(option -> new SliderControlExtended(option, 0, 33, 1, ControlValueFormatterExtended.fogDistance(), false))
-                            .setBinding((options, value) -> options.renderSettings.fogDistance = value, options -> options.renderSettings.fogDistance)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog_falloff").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_start"))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_start.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding((options, value) -> options.renderSettings.fogStart = value, options -> options.renderSettings.fogStart)
                             .build()
                     )
                     .build());
