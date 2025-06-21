@@ -23,7 +23,14 @@ public class MixinAtmosphericFogEnvironment {
                 : SodiumExtraClientMod.options().renderSettings.fogDistance;
 
         // Skip if no override
-        if (fogDistance == 0 || fogDistance == 33) return;
+        if (fogDistance == 0)
+            return;
+
+        if (fogDistance == 33) {
+            fogData.environmentalStart = Float.MAX_VALUE;
+            fogData.environmentalEnd = Float.MAX_VALUE;
+            return;
+        }
 
         // Fog start percentage
         float fogStartPercent = SodiumExtraClientMod.options().renderSettings.fogStart / 100.0F;

@@ -1,62 +1,44 @@
 package me.flashyreese.mods.sodiumextra.mixin.fog;
 
-import com.mojang.blaze3d.buffers.GpuBuffer;
-import com.mojang.blaze3d.buffers.GpuBufferSlice;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.FogRenderer;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(FogRenderer.class)
+@Mixin(value = FogRenderer.class, priority = 1300)
 public class MixinFogRenderer {
 
-    @Shadow
-    @Final
-    public static int FOG_UBO_SIZE;
-    @Shadow
-    @Final
-    private GpuBuffer emptyBuffer;
-
-    @Inject(method = "getBuffer", at = @At(value = "HEAD"), cancellable = true)
-    public void getBuffer(FogRenderer.FogMode fogMode, CallbackInfoReturnable<GpuBufferSlice> cir) {
-        if (Minecraft.getInstance().level == null) return;
-
+    @Redirect(method = "setupFog", at = @At(value = "FIELD", target = "Lnet/minecraft/client/renderer/fog/FogData;renderDistanceStart:F", ordinal = 0))
+    public void modifyRenderDistanceStart(FogData fogData, float renderDistanceStart) {
         int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
                 ? SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.getOrDefault(Minecraft.getInstance().level.dimensionType().effectsLocation(), 0)
                 : SodiumExtraClientMod.options().renderSettings.fogDistance;
-        if (fogDistance == 33) {
-            cir.setReturnValue(this.emptyBuffer.slice(0, FOG_UBO_SIZE));
+
+        if (fogDistance == 0) {
+            fogData.renderDistanceStart = renderDistanceStart;
+        } else if (fogDistance == 33) {
+            fogData.renderDistanceStart = Float.MAX_VALUE;
+        } else {
+            float fogStart = SodiumExtraClientMod.options().renderSettings.fogStart / 100.0F;
+            fogData.renderDistanceStart = fogDistance * fogStart * 16F;
         }
     }
 
-    /*@ModifyVariable(method = "updateBuffer(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V",
-            at = @At("HEAD"), ordinal = 2, argsOnly = true)
-    private float overrideEnvironmentalStart(float original) {
-        System.out.println("rd start: " + original);
-        if (SodiumExtraClientMod.options().renderSettings.fogDistance == 0) return original;
-
+    @Redirect(method = "setupFog", at = @At(value = "FIELD", target = "Lnet/minecraft/client/renderer/fog/FogData;renderDistanceEnd:F", ordinal = 0))
+    public void modifyRenderDistanceEnd(FogData fogData, float renderDistanceEnd) {
         int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
                 ? SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.getOrDefault(Minecraft.getInstance().level.dimensionType().effectsLocation(), 0)
                 : SodiumExtraClientMod.options().renderSettings.fogDistance;
-        float fogStart = SodiumExtraClientMod.options().renderSettings.fogStart / 100.0F;
 
-        return fogDistance * 0.16F * fogStart;
+        if (fogDistance == 0) {
+            fogData.renderDistanceEnd = renderDistanceEnd;
+        } else if (fogDistance == 33) {
+            fogData.renderDistanceEnd = Float.MAX_VALUE;
+        } else {
+            fogData.renderDistanceEnd = (fogDistance + 1) * 16F;
+        }
     }
-
-    @ModifyVariable(method = "updateBuffer(Ljava/nio/ByteBuffer;ILorg/joml/Vector4f;FFFFFF)V",
-            at = @At("HEAD"), ordinal = 3, argsOnly = true)
-    private float overrideEnvironmentalEnd(float original) {
-        System.out.println("rd end: " + original);
-        if (SodiumExtraClientMod.options().renderSettings.fogDistance == 0) return original;
-
-        int fogDistance = SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
-                ? SodiumExtraClientMod.options().renderSettings.dimensionFogDistanceMap.getOrDefault(Minecraft.getInstance().level.dimensionType().effectsLocation(), 0)
-                : SodiumExtraClientMod.options().renderSettings.fogDistance;
-        return (fogDistance + 1) * 0.16F;
-    }*/
 }
