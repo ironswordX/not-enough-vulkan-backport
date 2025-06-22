@@ -2,6 +2,7 @@ package me.flashyreese.mods.sodiumextra.mixin.fog;
 
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import me.flashyreese.mods.sodiumextra.client.fog.FogEnvironmentExtended;
+import me.flashyreese.mods.sodiumextra.client.gui.FogTypeConfig;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
@@ -16,21 +17,21 @@ public abstract class MixinFogEnvironment implements FogEnvironmentExtended {
 
     @Override
     public void sodium_extra$applyFogSettings(FogType fogType, FogData fogData, Entity entity, BlockPos blockPos, ClientLevel level, float viewDistance, DeltaTracker deltaTracker) {
-        if (fogType == FogType.ATMOSPHERIC) {
-            if (!SodiumExtraClientMod.options().renderSettings.fog) {
-                fogData.environmentalStart = Float.MAX_VALUE;
-                fogData.environmentalEnd = Float.MAX_VALUE;
-                fogData.renderDistanceStart = Float.MAX_VALUE;
-                fogData.renderDistanceEnd = Float.MAX_VALUE;
-                return;
-            }
+        FogTypeConfig config = SodiumExtraClientMod.options().renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
 
-            float fogStart = (SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl
-                    ? SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.getOrDefault(level.dimensionType().effectsLocation(), 100)
-                    : SodiumExtraClientMod.options().renderSettings.fogStart) / 100.0F;
-
-            fogData.environmentalStart = fogData.environmentalStart * fogStart;
-            fogData.renderDistanceStart = fogData.renderDistanceStart * fogStart;
+        if (!SodiumExtraClientMod.options().renderSettings.globalFog || !config.enable) {
+            fogData.environmentalStart = Float.MAX_VALUE;
+            fogData.environmentalEnd = Float.MAX_VALUE;
+            fogData.renderDistanceStart = Float.MAX_VALUE;
+            fogData.renderDistanceEnd = Float.MAX_VALUE;
+            fogData.skyEnd = Float.MAX_VALUE;
+            fogData.cloudEnd = Float.MAX_VALUE;
+            return;
         }
+        float environmentStartMultiplier = config.environmentStartMultiplier / 100.0F;
+        float renderDistanceStartMultiplier = config.renderDistanceStartMultiplier / 100.0F;
+
+        fogData.environmentalStart = fogData.environmentalStart * environmentStartMultiplier;
+        fogData.renderDistanceStart = fogData.renderDistanceStart * renderDistanceStartMultiplier;
     }
 }

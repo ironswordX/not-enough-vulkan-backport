@@ -16,11 +16,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.WorldDimensions;
+import net.minecraft.world.level.material.FogType;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SodiumExtraGameOptionPages {
     public static final SodiumExtraOptionsStorage sodiumExtraOpts = new SodiumExtraOptionsStorage();
@@ -152,7 +151,7 @@ public class SodiumExtraGameOptionPages {
                         .setTooltip(translatableTooltip(identifier, "particles"))
                         .setControl(TickBoxControl::new)
                         .setBinding((opts, val) -> opts.particleSettings.otherMap.put(identifier, val),
-                                opts -> opts.particleSettings.otherMap.getOrDefault(identifier, true))
+                                opts -> opts.particleSettings.otherMap.computeIfAbsent(identifier, k -> true))
                         .build())
                 .sorted(Comparator.comparing(o -> o.getName().getString()))
                 .collect(
@@ -236,55 +235,55 @@ public class SodiumExtraGameOptionPages {
         groups.add(OptionGroup.createBuilder()
                 .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
                         .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                        .setName(Component.translatable("sodium-extra.option.fog"))
-                        .setTooltip(Component.translatable("sodium-extra.option.fog.tooltip"))
+                        .setName(Component.translatable("sodium-extra.option.global_fog"))
+                        .setTooltip(Component.translatable("sodium-extra.option.global_fog.tooltip"))
                         .setControl(TickBoxControl::new)
-                        .setBinding((options, value) -> options.renderSettings.fog = value, options -> options.renderSettings.fog)
-                        .build()
-                )
-                .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
-                        .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                        .setName(Component.translatable("sodium-extra.option.multi_dimension_fog"))
-                        .setTooltip(Component.translatable("sodium-extra.option.multi_dimension_fog.tooltip"))
-                        .setControl(TickBoxControl::new)
-                        .setBinding((options, value) -> options.renderSettings.multiDimensionFogControl = value, options -> options.renderSettings.multiDimensionFogControl)
+                        .setBinding((options, value) -> options.renderSettings.globalFog = value, options -> options.renderSettings.globalFog)
                         .build()
                 )
                 .build());
 
-        if (SodiumExtraClientMod.options().renderSettings.multiDimensionFogControl) {
-            WorldDimensions
-                    .keysInOrder(Stream.empty())
-                    .filter(dim -> !SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.containsKey(dim.location()))
-                    .forEach(dim -> SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.put(dim.location(), 100));
-            groups.add(SodiumExtraClientMod.options().renderSettings.dimensionFogStartMap.keySet().stream()
-                    .map(identifier -> OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                            .setName(Component.translatable("sodium-extra.option.fog_start_dimension", translatableName(identifier, "dimensions").getString()))
-                            .setTooltip(Component.translatable("sodium-extra.option.fog_start_dimension.tooltip"))
-                            .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
-                            .setBinding((opts, val) -> opts.renderSettings.dimensionFogStartMap.put(identifier, val),
-                                    opts -> opts.renderSettings.dimensionFogStartMap.getOrDefault(identifier, 100))
-                            .build()
-                    ).collect(
-                            OptionGroup::createBuilder,
-                            OptionGroup.Builder::add,
-                            (b1, b2) -> {
-                            }
-                    ).build()
-            );
-        } else {
-            groups.add(OptionGroup.createBuilder()
-                    .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog_falloff").isEnabled())
-                            .setName(Component.translatable("sodium-extra.option.fog_start"))
-                            .setTooltip(Component.translatable("sodium-extra.option.fog_start.tooltip"))
-                            .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
-                            .setBinding((options, value) -> options.renderSettings.fogStart = value, options -> options.renderSettings.fogStart)
-                            .build()
-                    )
-                    .build());
-        }
+
+        Arrays.stream(FogType.values())
+                .sorted(Comparator.comparing(Enum::name)) // Alphabetical
+                .filter(type -> type != FogType.NONE) //
+                .forEach(fogType -> {
+                    groups.add(OptionGroup.createBuilder()
+                            .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
+                                    .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                                    .setName(fogTypeName(fogType))
+                                    .setTooltip(fogTypeTooltip(fogType))
+                                    .setControl(TickBoxControl::new)
+                                    .setBinding(
+                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).enable = val,
+                                            opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).enable
+                                    )
+                                    .build()
+                            )
+                            .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                                    .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                                    .setName(Component.translatable("sodium-extra.option.fog_type.environment_start", fogTypeName(fogType)))
+                                    .setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_start.tooltip"))
+                                    .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
+                                    .setBinding(
+                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).environmentStartMultiplier = val,
+                                            opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentStartMultiplier
+                                    )
+                                    .build()
+                            )
+                            .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                                    .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                                    .setName(Component.translatable("sodium-extra.option.fog_type.render_distance_start", fogTypeName(fogType)))
+                                    .setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_start.tooltip"))
+                                    .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
+                                    .setBinding(
+                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).renderDistanceStartMultiplier = val,
+                                            opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceStartMultiplier
+                                    )
+                                    .build()
+                            )
+                            .build());
+                });
 
         groups.add(OptionGroup.createBuilder()
                 .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
@@ -533,6 +532,30 @@ public class SodiumExtraGameOptionPages {
                 .build());
 
         return new OptionPage(Component.translatable("sodium-extra.option.extras"), ImmutableList.copyOf(groups));
+    }
+
+    private static Component fogTypeName(FogType type) {
+        String key = "sodium-extra.option.fog_type." + type.name().toLowerCase();
+        Component translated = Component.translatable(key);
+
+        // Fallback: pretty print from enum name (e.g., DIMENSION_OR_BOSS → "Dimension Or Boss Fog")
+        if (!ComponentUtils.isTranslationResolvable(translated)) {
+            String pretty = Arrays.stream(type.name().split("_"))
+                    .map(s -> s.charAt(0) + s.substring(1).toLowerCase())
+                    .collect(Collectors.joining(" ")) + " Fog";
+            return Component.literal(pretty);
+        }
+        return translated;
+    }
+
+    private static Component fogTypeTooltip(FogType type) {
+        String key = "sodium-extra.option.fog_type." + type.name().toLowerCase() + ".tooltip";
+        Component translated = Component.translatable(key);
+
+        if (!ComponentUtils.isTranslationResolvable(translated)) {
+            return Component.translatable("sodium-extra.option.fog_type.default.tooltip", fogTypeName(type));
+        }
+        return translated;
     }
 
     private static Component translatableName(ResourceLocation identifier, String category) {

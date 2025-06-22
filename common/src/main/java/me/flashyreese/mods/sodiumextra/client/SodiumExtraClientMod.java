@@ -44,7 +44,6 @@ public class SodiumExtraClientMod {
                     .addMixinOption("cloud", true)
                     .addMixinOption("compat", true, false)
                     .addMixinOption("fog", true)
-                    .addMixinOption("fog_falloff", true)
                     .addMixinOption("gui", true)
                     .addMixinOption("instant_sneak", true)
                     .addMixinOption("light_updates", true)
