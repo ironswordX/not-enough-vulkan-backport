@@ -29,9 +29,17 @@ public abstract class MixinFogEnvironment implements FogEnvironmentExtended {
             return;
         }
         float environmentStartMultiplier = config.environmentStartMultiplier / 100.0F;
+        float environmentEndMultiplier = config.environmentEndMultiplier / 100.0F;
         float renderDistanceStartMultiplier = config.renderDistanceStartMultiplier / 100.0F;
+        float renderDistanceEndMultiplier = config.renderDistanceEndMultiplier / 100.0F;
+        float skyEndMultiplier = config.skyEndMultiplier / 100.0F;
+        float cloudEndMultiplier = config.cloudEndMultiplier / 100.0F;
 
-        fogData.environmentalStart = fogData.environmentalStart * environmentStartMultiplier;
-        fogData.renderDistanceStart = fogData.renderDistanceStart * renderDistanceStartMultiplier;
+        fogData.environmentalStart *= environmentStartMultiplier;
+        fogData.environmentalEnd *= environmentEndMultiplier;
+        fogData.renderDistanceStart *= renderDistanceStartMultiplier;
+        fogData.renderDistanceEnd *= renderDistanceEndMultiplier;
+        fogData.skyEnd *= skyEndMultiplier;
+        fogData.cloudEnd *= cloudEndMultiplier;
     }
 }

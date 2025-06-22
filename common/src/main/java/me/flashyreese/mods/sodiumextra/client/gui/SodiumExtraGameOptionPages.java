@@ -19,6 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.FogType;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class SodiumExtraGameOptionPages {
@@ -245,9 +246,132 @@ public class SodiumExtraGameOptionPages {
 
 
         Arrays.stream(FogType.values())
-                .sorted(Comparator.comparing(Enum::name)) // Alphabetical
-                .filter(type -> type != FogType.NONE) //
+                .sorted(Comparator.comparing(Enum::name))
+                .filter(type -> type != FogType.NONE)
                 .forEach(fogType -> {
+                    // Setup cross-references
+                    AtomicReference<OptionImpl<SodiumExtraGameOptions, Integer>> environmentStartRef = new AtomicReference<>();
+                    AtomicReference<OptionImpl<SodiumExtraGameOptions, Integer>> environmentEndRef = new AtomicReference<>();
+                    AtomicReference<OptionImpl<SodiumExtraGameOptions, Integer>> renderDistanceStartRef = new AtomicReference<>();
+                    AtomicReference<OptionImpl<SodiumExtraGameOptions, Integer>> renderDistanceEndRef = new AtomicReference<>();
+
+                    // Environment Start
+                    OptionImpl<SodiumExtraGameOptions, Integer> envStart = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.environment_start", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_start.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> {
+                                        FogTypeConfig config = opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
+                                        config.environmentStartMultiplier = val;
+
+                                        // Enforce: end >= start
+                                        if (config.environmentEndMultiplier < val) {
+                                            config.environmentEndMultiplier = val;
+                                            if (environmentEndRef.get() != null) {
+                                                environmentEndRef.get().setValue(val);
+                                            }
+                                        }
+                                    },
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentStartMultiplier
+                            )
+                            .build();
+                    environmentStartRef.set(envStart);
+
+                    // Environment End
+                    OptionImpl<SodiumExtraGameOptions, Integer> envEnd = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.environment_end", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_end.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> {
+                                        FogTypeConfig config = opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
+                                        config.environmentEndMultiplier = val;
+
+                                        if (config.environmentStartMultiplier > val) {
+                                            config.environmentStartMultiplier = val;
+                                            if (environmentStartRef.get() != null) {
+                                                environmentStartRef.get().setValue(val);
+                                            }
+                                        }
+                                    },
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentEndMultiplier
+                            )
+                            .build();
+                    environmentEndRef.set(envEnd);
+
+                    // Render Start
+                    OptionImpl<SodiumExtraGameOptions, Integer> renderStart = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.render_distance_start", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_start.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> {
+                                        FogTypeConfig config = opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
+                                        config.renderDistanceStartMultiplier = val;
+
+                                        // Enforce: end >= start
+                                        if (config.renderDistanceEndMultiplier < val) {
+                                            config.renderDistanceEndMultiplier = val;
+                                            if (renderDistanceEndRef.get() != null) {
+                                                renderDistanceEndRef.get().setValue(val);
+                                            }
+                                        }
+                                    },
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceStartMultiplier
+                            )
+                            .build();
+                    renderDistanceStartRef.set(renderStart);
+
+                    // Render End
+                    OptionImpl<SodiumExtraGameOptions, Integer> renderEnd = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.render_distance_end", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_end.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> {
+                                        FogTypeConfig config = opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
+                                        config.renderDistanceEndMultiplier = val;
+
+                                        if (config.renderDistanceStartMultiplier > val) {
+                                            config.renderDistanceStartMultiplier = val;
+                                            if (renderDistanceStartRef.get() != null) {
+                                                renderDistanceStartRef.get().setValue(val);
+                                            }
+                                        }
+                                    },
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceEndMultiplier
+                            )
+                            .build();
+                    renderDistanceEndRef.set(renderEnd);
+
+                    OptionImpl<SodiumExtraGameOptions, Integer> skyEnd = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.sky_end", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.sky_end.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).skyEndMultiplier = val,
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).skyEndMultiplier
+                            )
+                            .build();
+
+                    OptionImpl<SodiumExtraGameOptions, Integer> cloudEnd = OptionImpl.createBuilder(int.class, sodiumExtraOpts)
+                            .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
+                            .setName(Component.translatable("sodium-extra.option.fog_type.cloud_end", fogTypeName(fogType)))
+                            .setTooltip(Component.translatable("sodium-extra.option.fog_type.cloud_end.tooltip"))
+                            .setControl(option -> new SliderControlExtended(option, 0, 300, 1, ControlValueFormatter.percentage(), false))
+                            .setBinding(
+                                    (opts, val) -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).cloudEndMultiplier = val,
+                                    opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).cloudEndMultiplier
+                            )
+                            .build();
+
+                    // Add group
                     groups.add(OptionGroup.createBuilder()
                             .add(OptionImpl.createBuilder(boolean.class, sodiumExtraOpts)
                                     .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
@@ -255,33 +379,16 @@ public class SodiumExtraGameOptionPages {
                                     .setTooltip(fogTypeTooltip(fogType))
                                     .setControl(TickBoxControl::new)
                                     .setBinding(
-                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).enable = val,
+                                            (opts, val) -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).enable = val,
                                             opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).enable
                                     )
-                                    .build()
-                            )
-                            .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                                    .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                                    .setName(Component.translatable("sodium-extra.option.fog_type.environment_start", fogTypeName(fogType)))
-                                    .setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_start.tooltip"))
-                                    .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
-                                    .setBinding(
-                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).environmentStartMultiplier = val,
-                                            opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentStartMultiplier
-                                    )
-                                    .build()
-                            )
-                            .add(OptionImpl.createBuilder(int.class, sodiumExtraOpts)
-                                    .setEnabled(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.fog").isEnabled())
-                                    .setName(Component.translatable("sodium-extra.option.fog_type.render_distance_start", fogTypeName(fogType)))
-                                    .setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_start.tooltip"))
-                                    .setControl(option -> new SliderControlExtended(option, 0, 100, 1, ControlValueFormatter.percentage(), false))
-                                    .setBinding(
-                                            (opts, val) -> opts.renderSettings.fogTypeConfig.get(fogType).renderDistanceStartMultiplier = val,
-                                            opts -> opts.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceStartMultiplier
-                                    )
-                                    .build()
-                            )
+                                    .build())
+                            .add(envStart)
+                            .add(envEnd)
+                            .add(renderStart)
+                            .add(renderEnd)
+                            .add(skyEnd)
+                            .add(cloudEnd)
                             .build());
                 });
 

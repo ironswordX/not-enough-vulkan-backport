@@ -356,8 +356,16 @@
   "sodium-extra.option.fog_type.default.tooltip": "Toggles fog visibility and distance for %s.",
   "sodium-extra.option.fog_type.environment_start": "%s - Environment Start",
   "sodium-extra.option.fog_type.environment_start.tooltip": "Controls the fog start distance multiplier for the environment fog.",
+  "sodium-extra.option.fog_type.environment_end": "%s - Environment End",
+  "sodium-extra.option.fog_type.environment_end.tooltip": "Controls the fog end distance multiplier for the environment fog.",
   "sodium-extra.option.fog_type.render_distance_start": "%s - Render Start",
   "sodium-extra.option.fog_type.render_distance_start.tooltip": "Controls the fog start distance multiplier for render fog (border fade).",
+  "sodium-extra.option.fog_type.render_distance_end": "%s - Render End",
+  "sodium-extra.option.fog_type.render_distance_end.tooltip": "Controls the fog end distance multiplier for render fog (border fade).",
+  "sodium-extra.option.fog_type.sky_end": "%s - Sky End",
+  "sodium-extra.option.fog_type.sky_end.tooltip": "Controls the fog end multiplier for how far fog blends into the sky.",
+  "sodium-extra.option.fog_type.cloud_end": "%s - Cloud End",
+  "sodium-extra.option.fog_type.cloud_end.tooltip": "Controls the fog end multiplier for how far fog blends into clouds.",
   "sodium-extra.option.global_fog": "Global Fog",
   "sodium-extra.option.global_fog.tooltip": "If enabled, all fog will be rendered."
 }
