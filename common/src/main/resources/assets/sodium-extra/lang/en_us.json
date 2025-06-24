@@ -338,7 +338,7 @@
   "sodium-extra.option.use_fast_random.tooltip": "If enabled, a fast random function will be used for block rendering. This can affect the rotation of randomly rotated textures when compared to vanilla.",
   "sodium-extra.overlay.coordinates": "X: %s, Y: %s, Z: %s",
   "sodium-extra.overlay.fps": "%s FPS",
-  "sodium-extra.overlay.fps_extended": "(max. %s / avg. %s / min. %s)",
+  "sodium-extra.overlay.fps_extended": "(avg. %s / 1%% low %s / 0.1%% low %s)",
   "sodium-extra.overlay.light_updates": "Light updates disabled",
   "sodium-extra.suggestRSO.header": "Suggestion: Install Reese's Sodium Options",
   "sodium-extra.suggestRSO.message": "It is highly recommended you install Reese's Sodium Options alongside Sodium Extra. Due to the growing amount of features, it no longer fits properly on Sodium's video options.",

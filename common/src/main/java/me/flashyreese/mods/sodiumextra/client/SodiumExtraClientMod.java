@@ -11,8 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SodiumExtraClientMod {
-
-    private static final ClientTickHandler clientTickHandler = new ClientTickHandler();
     private static SodiumExtraGameOptions CONFIG;
     private static CaffeineConfig MIXIN_CONFIG;
     private static Logger LOGGER;
@@ -44,6 +42,7 @@ public class SodiumExtraClientMod {
                     .addMixinOption("cloud", true)
                     .addMixinOption("compat", true, false)
                     .addMixinOption("fog", true)
+                    .addMixinOption("fps", true)
                     .addMixinOption("gui", true)
                     .addMixinOption("instant_sneak", true)
                     .addMixinOption("light_updates", true)
@@ -77,10 +76,6 @@ public class SodiumExtraClientMod {
         return MIXIN_CONFIG;
     }
 
-    public static ClientTickHandler getClientTickHandler() {
-        return clientTickHandler;
-    }
-
     private static SodiumExtraGameOptions loadConfig() {
         return SodiumExtraGameOptions.load(PlatformRuntimeInformation.getInstance().getConfigDirectory().resolve("sodium-extra-options.json").toFile());
     }
@@ -89,7 +84,6 @@ public class SodiumExtraClientMod {
         if (hud == null) {
             hud = new SodiumExtraHud();
         }
-        clientTickHandler.onClientTick(client);
         hud.onStartTick(client);
     }
 
