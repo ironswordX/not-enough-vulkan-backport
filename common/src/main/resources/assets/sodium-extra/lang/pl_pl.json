@@ -264,7 +264,7 @@
   "sodium-extra.option.fog.tooltip": "Dostosowuje odległość efektu mgły na teren w zależności od wymiaru. Wyłącz mgłę między wymiarami, aby kontrolować mgłę za pomocą prostej mgły \n0 - użyj domyślnych ustawień mgły\n1-32 - ustaw odległość mgły w chunkach\n33 - maksymalny dystans mgły (zasadniczo wyłącza mgłę)",
   "sodium-extra.option.fog_start": "Mnożnik początkowy mgły",
   "sodium-extra.option.fog_start.tooltip": "Dostosowuje, kiedy mgła terenu zaczyna się renderować dla gracza.",
-  "sodium-extra.option.fog_type.atmospheric": "Atmospheric Fog",
+  "sodium-extra.option.fog_type.atmospheric": "Mgła atmosferyczna",
   "sodium-extra.option.fog_type.atmospheric.tooltip": "Controls the visibility of fog caused by atmosphere and weather conditions.",
   "sodium-extra.option.fog_type.cloud_end": "%s - Cloud End",
   "sodium-extra.option.fog_type.cloud_end.tooltip": "Controls the fog end multiplier for how far fog blends into clouds.",
