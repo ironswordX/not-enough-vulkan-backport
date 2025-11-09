@@ -1,6 +1,6 @@
 plugins {
     id("idea")
-    id("net.neoforged.moddev") version "2.0.110"
+    id("net.neoforged.moddev") version "2.0.116"
     id("java-library")
 }
 
@@ -17,13 +17,6 @@ base {
 }
 
 repositories {
-    maven("https://maven.pkg.github.com/ims212/FRAPI-Testing") {
-        credentials {
-            username = "IMS212"
-            // Read only token
-            password = "ghp_" + "DEuGv0Z56vnSOYKLCXdsS9svK4nb9K39C1Hn"
-        }
-    }
     maven("https://maven.su5ed.dev/releases")
     maven("https://maven.neoforged.net/releases/")
 
