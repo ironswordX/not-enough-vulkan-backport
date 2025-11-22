@@ -4,7 +4,7 @@ plugins {
 }
 
 val MINECRAFT_VERSION by extra { "1.21.10" }
-val NEOFORGE_VERSION by extra { "21.10.47-beta" }
+val NEOFORGE_VERSION by extra { "21.10.52-beta" }
 val FABRIC_LOADER_VERSION by extra { "0.17.3" }
 val FABRIC_API_VERSION by extra { "0.138.0+1.21.10" }
 
@@ -15,7 +15,7 @@ val PARCHMENT_VERSION by extra { null }
 val MAVEN_GROUP by extra { "me.flashyreese.mods" }
 val ARCHIVE_NAME by extra { "sodium-extra" }
 val MOD_VERSION by extra { "0.7.1" }
-val SODIUM_VERSION by extra { "mc1.21.10-0.7.2" }
+val SODIUM_VERSION by extra { "mc1.21.10-0.7.3" }
 
 allprojects {
     apply(plugin = "java")
