@@ -10,11 +10,10 @@ import net.caffeinemc.mods.sodium.api.vertex.format.common.EntityVertex;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BeaconRenderer;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.entity.BeaconBeamOwner;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -37,8 +36,8 @@ public abstract class MixinBeaconRenderer<T extends BlockEntity & BeaconBeamOwne
      * @author FlashyReese
      * @reason Use optimized vertex writer, also avoids unnecessary allocations
      */
-    /*@Inject(method = "renderBeaconBeam(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/resources/ResourceLocation;FFJIIIFF)V", at = @At(value = "HEAD"), cancellable = true)
-    private static void optimizeRenderBeam(PoseStack poseStack, MultiBufferSource multiBufferSource, ResourceLocation resourceLocation, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, int color, float innerRadius, float outerRadius, CallbackInfo ci) {
+    /*@Inject(method = "renderBeaconBeam(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/resources/Identifier;FFJIIIFF)V", at = @At(value = "HEAD"), cancellable = true)
+    private static void optimizeRenderBeam(PoseStack poseStack, MultiBufferSource multiBufferSource, Identifier Identifier, float tickDelta, float heightScale, long worldTime, int yOffset, int maxY, int color, float innerRadius, float outerRadius, CallbackInfo ci) {
         ci.cancel();
         if (IrisCompat.isIrisPresent()) {
             if (IrisCompat.isRenderingShadowPass()) {
@@ -66,7 +65,7 @@ public abstract class MixinBeaconRenderer<T extends BlockEntity & BeaconBeamOwne
             long ptr = buffer;
             // Note: ModelVertex color takes in ABGR
             ptr = writeBeamLayerVertices(ptr, poseStack, ColorARGB.toABGR(color), yOffset, height, 0.0F, innerRadius, innerRadius, 0.0F, innerX3, 0.0F, 0.0F, innerZ4, innerV1, innerV2);
-            VertexBufferWriter.of(multiBufferSource.getBuffer(RenderType.beaconBeam(resourceLocation, false))).push(stack, buffer, 16, EntityVertex.FORMAT);
+            VertexBufferWriter.of(multiBufferSource.getBuffer(RenderType.beaconBeam(Identifier, false))).push(stack, buffer, 16, EntityVertex.FORMAT);
 
             poseStack.popPose();
             innerX1 = -outerRadius;
@@ -78,7 +77,7 @@ public abstract class MixinBeaconRenderer<T extends BlockEntity & BeaconBeamOwne
 
             buffer = ptr;
             ptr = writeBeamLayerVertices(ptr, poseStack, ColorARGB.toABGR(color, 32), yOffset, height, innerX1, outerZ1, outerRadius, innerZ2, innerX3, outerRadius, outerRadius, outerRadius, innerV1, innerV2);
-            VertexBufferWriter.of(multiBufferSource.getBuffer(RenderType.beaconBeam(resourceLocation, true))).push(stack, buffer, 16, EntityVertex.FORMAT);
+            VertexBufferWriter.of(multiBufferSource.getBuffer(RenderType.beaconBeam(Identifier, true))).push(stack, buffer, 16, EntityVertex.FORMAT);
         }
         poseStack.popPose();
     }

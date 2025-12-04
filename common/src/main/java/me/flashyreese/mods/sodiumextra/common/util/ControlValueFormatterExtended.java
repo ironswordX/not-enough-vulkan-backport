@@ -1,7 +1,7 @@
 package me.flashyreese.mods.sodiumextra.common.util;
 
 import com.mojang.blaze3d.platform.Monitor;
-import net.caffeinemc.mods.sodium.client.gui.options.control.ControlValueFormatter;
+import net.caffeinemc.mods.sodium.api.config.option.ControlValueFormatter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 

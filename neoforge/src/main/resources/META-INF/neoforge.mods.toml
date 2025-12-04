@@ -8,7 +8,7 @@ modId = "sodium_extra"
 version = "${version}"
 displayName = "Sodium Extra"
 
-logoFile = "icon.png" #optional
+logoFile = "assets/sodium-extra/textures/icon.png" #optional
 
 authors = "FlashyReese"
 
@@ -19,7 +19,7 @@ Features that shouldn't be in Sodium.
 [[dependencies.sodium_extra]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.8,)"
+versionRange = "[1.21.9,)"
 ordering = "NONE"
 side = "CLIENT"
 

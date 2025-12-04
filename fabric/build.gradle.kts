@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("idea")
-    id("fabric-loom") version ("1.11-SNAPSHOT")
+    id("fabric-loom") version ("1.13-SNAPSHOT")
 }
 
 val MINECRAFT_VERSION: String by rootProject.extra
@@ -35,12 +35,13 @@ dependencies {
     // Fabric API modules
     addEmbeddedFabricModule("fabric-api-base")
     addEmbeddedFabricModule("fabric-block-view-api-v2")
-    addEmbeddedFabricModule("fabric-renderer-api-v1")
+    //addEmbeddedFabricModule("fabric-renderer-api-v1")
     addEmbeddedFabricModule("fabric-rendering-fluids-v1")
     addEmbeddedFabricModule("fabric-resource-loader-v0")
     compileOnly(project(":common"))
-    modImplementation("maven.modrinth:sodium:$SODIUM_VERSION-fabric")
-    modRuntimeOnly("maven.modrinth:reeses-sodium-options:mc1.21.9-1.8.5+fabric");
+    //modImplementation("maven.modrinth:sodium:$SODIUM_VERSION-fabric")
+    modImplementation("net.caffeinemc:sodium-fabric:0.8.0-SNAPSHOT+mc1.21.11-pre3-build.773")
+    modImplementation("net.caffeinemc:sodium-fabric-api:0.8.0-SNAPSHOT+mc1.21.11-pre3-build.773")
 }
 
 tasks.test {

@@ -26,8 +26,13 @@
     "issues": "https://github.com/FlashyReese/sodium-extra-fabric/issues"
   },
   "license": "LGPLv3",
-  "icon": "icon.png",
+  "icon": "assets/sodium-extra/textures/icon.png",
   "environment": "client",
+  "entrypoints": {
+    "sodium:config_api_user": [
+      "me.flashyreese.mods.sodiumextra.client.config.SodiumExtraConfig"
+    ]
+  },
   "custom": {
     "modmenu": {
       "parent": {

@@ -1,4 +1,4 @@
-package me.flashyreese.mods.sodiumextra.client.gui;
+package me.flashyreese.mods.sodiumextra.client.config;
 
 public class FogTypeConfig {
     public boolean enable;

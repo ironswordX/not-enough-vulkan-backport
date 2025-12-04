@@ -1,4 +1,4 @@
-package me.flashyreese.mods.sodiumextra.client.gui;
+package me.flashyreese.mods.sodiumextra.client.config;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -6,10 +6,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
 import it.unimi.dsi.fastutil.objects.Object2BooleanArrayMap;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
-import me.flashyreese.mods.sodiumextra.common.util.ResourceLocationSerializer;
+import me.flashyreese.mods.sodiumextra.common.util.IdentifierSerializer;
+import net.caffeinemc.mods.sodium.api.config.StorageEventHandler;
 import net.caffeinemc.mods.sodium.client.gui.options.TextProvider;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.material.FogType;
 import org.lwjgl.glfw.GLFW;
 
@@ -22,9 +23,9 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class SodiumExtraGameOptions {
+public class SodiumExtraGameOptions implements StorageEventHandler {
     private static final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(ResourceLocation.class, new ResourceLocationSerializer())
+            .registerTypeAdapter(Identifier.class, new IdentifierSerializer())
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .setPrettyPrinting()
             .excludeFieldsWithModifiers(Modifier.PRIVATE)
@@ -72,6 +73,11 @@ public class SodiumExtraGameOptions {
         } catch (IOException e) {
             throw new RuntimeException("Could not save configuration file", e);
         }
+    }
+
+    @Override
+    public void afterSave() {
+        this.writeChanges();
     }
 
     public enum OverlayCorner implements TextProvider {
@@ -162,7 +168,7 @@ public class SodiumExtraGameOptions {
         public boolean blockBreak;
         public boolean blockBreaking;
         @SerializedName("other")
-        public Map<ResourceLocation, Boolean> otherMap;
+        public Map<Identifier, Boolean> otherMap;
 
         public ParticleSettings() {
             this.particles = true;

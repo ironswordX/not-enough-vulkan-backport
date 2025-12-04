@@ -1,13 +1,5 @@
 package me.flashyreese.mods.sodiumextra.mixin.sodium.accessibility;
 
-import net.caffeinemc.mods.sodium.client.gui.SodiumGameOptionPages;
-import net.caffeinemc.mods.sodium.client.gui.options.OptionGroup;
-import net.caffeinemc.mods.sodium.client.gui.options.OptionImpact;
-import net.caffeinemc.mods.sodium.client.gui.options.OptionImpl;
-import net.caffeinemc.mods.sodium.client.gui.options.OptionPage;
-import net.caffeinemc.mods.sodium.client.gui.options.control.ControlValueFormatter;
-import net.caffeinemc.mods.sodium.client.gui.options.control.SliderControl;
-import net.caffeinemc.mods.sodium.client.gui.options.storage.MinecraftOptionsStorage;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
-@Mixin(value = SodiumGameOptionPages.class, remap = false)
+//@Mixin(value = SodiumGameOptionPages.class, remap = false)
 public class MixinSodiumGameOptionPages {
-
+/*
     @Shadow
     @Final
     private static MinecraftOptionsStorage vanillaOpts;
@@ -46,5 +38,5 @@ public class MixinSodiumGameOptionPages {
                         .build()
                 )
                 .build());
-    }
+    }*/
 }

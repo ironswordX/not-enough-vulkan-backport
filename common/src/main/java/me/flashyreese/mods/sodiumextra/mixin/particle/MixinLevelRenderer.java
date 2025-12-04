@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(WeatherEffectRenderer.class)
 public class MixinLevelRenderer {
     @Inject(method = "tickRainParticles", at = @At(value = "HEAD"), cancellable = true)
-    public void tickRainSplashing(ClientLevel clientLevel, Camera camera, int i, ParticleStatus particleStatus, CallbackInfo ci) {
+    public void tickRainSplashing(ClientLevel clientLevel, Camera camera, int i, ParticleStatus particleStatus, int j, CallbackInfo ci) {
         if (!(SodiumExtraClientMod.options().particleSettings.particles && SodiumExtraClientMod.options().particleSettings.rainSplash)) {
             ci.cancel();
         }

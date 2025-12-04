@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.SkyRenderer;
+import net.minecraft.world.level.MoonPhase;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,7 +16,7 @@ public class MixinSkyRenderer {
             method = "renderSkyDisc",
             at = @At(value = "HEAD"), cancellable = true
     )
-    public void redirectRenderSkyDisc(float f, float g, float h, CallbackInfo ci) {
+    public void redirectRenderSkyDisc(int i, CallbackInfo ci) {
         if (!SodiumExtraClientMod.options().detailSettings.sky) {
             ci.cancel();
         }
@@ -36,7 +37,7 @@ public class MixinSkyRenderer {
     }
 
     @Inject(method = "renderMoon", at = @At(value = "HEAD"), cancellable = true)
-    private void renderMoon(int i, float f, PoseStack poseStack, CallbackInfo ci) {
+    private void renderMoon(MoonPhase moonPhase, float f, PoseStack poseStack, CallbackInfo ci) {
         if (!SodiumExtraClientMod.options().detailSettings.moon) {
             ci.cancel();
         }

@@ -1,4 +1,4 @@
-package me.flashyreese.mods.sodiumextra.mixin.core;
+package me.flashyreese.mods.sodiumextra.mixin.gui;
 
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import net.minecraft.client.DeltaTracker;

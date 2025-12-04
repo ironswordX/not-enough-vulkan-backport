@@ -2,8 +2,7 @@ package me.flashyreese.mods.sodiumextra.mixin.fog;
 
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import me.flashyreese.mods.sodiumextra.client.fog.FogEnvironmentExtended;
-import me.flashyreese.mods.sodiumextra.client.gui.FogTypeConfig;
-import net.minecraft.client.DeltaTracker;
+import me.flashyreese.mods.sodiumextra.client.config.FogTypeConfig;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.FogEnvironment;
@@ -16,7 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public abstract class MixinFogEnvironment implements FogEnvironmentExtended {
 
     @Override
-    public void sodium_extra$applyFogSettings(FogType fogType, FogData fogData, Entity entity, BlockPos blockPos, ClientLevel level, float viewDistance, DeltaTracker deltaTracker) {
+    public void sodium_extra$applyFogSettings(FogType fogType, FogData fogData, Entity entity, BlockPos blockPos, ClientLevel level, float viewDistance) {
         FogTypeConfig config = SodiumExtraClientMod.options().renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
 
         if (!SodiumExtraClientMod.options().renderSettings.globalFog || !config.enable) {

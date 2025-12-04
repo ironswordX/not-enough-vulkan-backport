@@ -3,6 +3,7 @@ package me.flashyreese.mods.sodiumextra.client.gui;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import me.flashyreese.mods.sodiumextra.client.FrameCounter;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
+import me.flashyreese.mods.sodiumextra.client.config.SodiumExtraGameOptions;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -52,7 +53,7 @@ public class SodiumExtraHud {
     }
 
     public void onHudRender(GuiGraphics guiGraphics, DeltaTracker deltaTracker) {
-        if (!this.client.debugEntries.isF3Visible() && !this.client.options.hideGui) {
+        if (!this.client.debugEntries.isOverlayVisible() && !this.client.options.hideGui) {
             SodiumExtraGameOptions.OverlayCorner overlayCorner = SodiumExtraClientMod.options().extraSettings.overlayCorner;
             // Calculate starting position based on the overlay corner
             int x;
