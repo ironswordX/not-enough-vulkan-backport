@@ -64,7 +64,6 @@ public class SodiumExtraClientMod {
                     .addMixinOption("sodium.cloud", true)
                     .addMixinOption("sodium.resolution", true)
                     .addMixinOption("sodium.scrollable_page", true)
-                    .addMixinOption("sodium.vsync", true)
                     .addMixinOption("stars", true)
                     .addMixinOption("steady_debug_hud", true)
                     .addMixinOption("sun_moon", true)

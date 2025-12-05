@@ -36,7 +36,6 @@
     "sky.MixinSkyRenderer",
     "sky_colors.MixinAtmosphericFogEnvironment",
     "sodium.fog.MixinOcclusionCuller",
-    "sodium.vsync.MixinSodiumGameOptionsPages",
     "steady_debug_hud.MixinDebugScreenOverlay",
     "toasts.MixinToastManager"
   ],
