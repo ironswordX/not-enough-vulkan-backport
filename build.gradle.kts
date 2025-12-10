@@ -3,8 +3,8 @@ plugins {
     id("fabric-loom") version ("1.14-SNAPSHOT") apply (false)
 }
 
-val MINECRAFT_VERSION by extra { "1.21.11-pre5" }
-val NEOFORGE_VERSION by extra { "21.10.61-beta" }
+val MINECRAFT_VERSION by extra { "1.21.11" }
+val NEOFORGE_VERSION by extra { "21.11.0-beta" }
 val FABRIC_LOADER_VERSION by extra { "0.18.1" }
 val FABRIC_API_VERSION by extra { "0.139.4+1.21.11" }
 
@@ -14,8 +14,8 @@ val PARCHMENT_VERSION by extra { null }
 // https://semver.org/
 val MAVEN_GROUP by extra { "me.flashyreese.mods" }
 val ARCHIVE_NAME by extra { "sodium-extra" }
-val MOD_VERSION by extra { "0.7.1" }
-val SODIUM_VERSION by extra { "mc1.21.10-0.7.3" }
+val MOD_VERSION by extra { "0.8.0" }
+val SODIUM_VERSION by extra { "0.8.0+mc1.21.11" }
 
 allprojects {
     apply(plugin = "java")

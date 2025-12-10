@@ -90,6 +90,7 @@ public abstract class MixinSpriteAtlasTexture extends AbstractTexture {
                     return supplierListEntry.getKey().get();
                 }
             }
+            System.out.println(identifier);
         }
         return true;
     }

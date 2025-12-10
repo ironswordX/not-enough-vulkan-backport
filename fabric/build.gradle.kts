@@ -39,8 +39,7 @@ dependencies {
     addEmbeddedFabricModule("fabric-rendering-fluids-v1")
     addEmbeddedFabricModule("fabric-resource-loader-v0")
     compileOnly(project(":common"))
-    //modImplementation("maven.modrinth:sodium:$SODIUM_VERSION-fabric")
-    modImplementation("net.caffeinemc:sodium-fabric:0.8.0-SNAPSHOT+mc1.21.11-pre5-build.784")
+    modImplementation("net.caffeinemc:sodium-fabric:$SODIUM_VERSION")
 }
 
 tasks.test {
