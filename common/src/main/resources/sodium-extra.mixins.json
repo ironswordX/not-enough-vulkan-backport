@@ -36,7 +36,6 @@
     "render.entity.MixinPaintingEntityRenderer",
     "sky.MixinSkyRenderer",
     "sky_colors.MixinAtmosphericFogEnvironment",
-    "sodium.fog.MixinOcclusionCuller",
     "steady_debug_hud.MixinDebugScreenOverlay",
     "toasts.MixinToastManager"
   ],
