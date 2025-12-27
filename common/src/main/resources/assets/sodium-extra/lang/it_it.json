@@ -5,7 +5,7 @@
   "options.dimensions.minecraft.the_end": "End",
   "options.dimensions.minecraft.the_nether": "Nether",
   "options.particles.minecraft.ambient_entity_effect": "Effetto Ambientale",
-  "options.particles.minecraft.ambient_entity_effect.tooltip": "Emitted by beacons and their status effects.",
+  "options.particles.minecraft.ambient_entity_effect.tooltip": "Emesse dai fari e dai relativi effetti di stato.",
   "options.particles.minecraft.angry_villager": "Villico Arrabbiato",
   "options.particles.minecraft.angry_villager.tooltip": "Produced when villagers fail to breed or when a job site becomes unclaimed because it is unreachable.",
   "options.particles.minecraft.ash": "Cenere",
