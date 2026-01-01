@@ -78,10 +78,10 @@ public class SodiumExtraGameOptions {
     }
 
     public enum OverlayCorner implements TextProvider {
-        TOP_LEFT("sodium-extra.option.overlay_corner.top_left"),
-        TOP_RIGHT("sodium-extra.option.overlay_corner.top_right"),
-        BOTTOM_LEFT("sodium-extra.option.overlay_corner.bottom_left"),
-        BOTTOM_RIGHT("sodium-extra.option.overlay_corner.bottom_right");
+        TOP_LEFT("vulkan-extra.option.overlay_corner.top_left"),
+        TOP_RIGHT("vulkan-extra.option.overlay_corner.top_right"),
+        BOTTOM_LEFT("vulkan-extra.option.overlay_corner.bottom_left"),
+        BOTTOM_RIGHT("vulkan-extra.option.overlay_corner.bottom_right");
 
         private final Component text;
 
@@ -96,9 +96,9 @@ public class SodiumExtraGameOptions {
     }
 
     public enum TextContrast implements TextProvider {
-        NONE("sodium-extra.option.text_contrast.none"),
-        BACKGROUND("sodium-extra.option.text_contrast.background"),
-        SHADOW("sodium-extra.option.text_contrast.shadow");
+        NONE("vulkan-extra.option.text_contrast.none"),
+        BACKGROUND("vulkan-extra.option.text_contrast.background"),
+        SHADOW("vulkan-extra.option.text_contrast.shadow");
 
         private final Component text;
 
@@ -115,7 +115,7 @@ public class SodiumExtraGameOptions {
     public enum VerticalSyncOption implements TextProvider {
         OFF("options.off"),
         ON("options.on"),
-        ADAPTIVE("sodium-extra.option.use_adaptive_sync.name", GLFW.glfwExtensionSupported("GLX_EXT_swap_control_tear") || GLFW.glfwExtensionSupported("WGL_EXT_swap_control_tear"));
+        ADAPTIVE("vulkan-extra.option.use_adaptive_sync.name", GLFW.glfwExtensionSupported("GLX_EXT_swap_control_tear") || GLFW.glfwExtensionSupported("WGL_EXT_swap_control_tear"));
 
         private final Component name;
         private final boolean supported;

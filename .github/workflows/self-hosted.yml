@@ -26,10 +26,10 @@ jobs:
       - name: Upload Build Artifacts - Fabric
         uses: actions/upload-artifact@v4
         with:
-          name: 'Sodium Extra Fabric Artifacts'
+          name: 'Vulkan Extra Fabric Artifacts'
           path: fabric/build/libs
       - name: Upload Build Artifacts - NeoForge
         uses: actions/upload-artifact@v4
         with:
-          name: 'Sodium Extra NeoForge Artifacts'
+          name: 'Vulkan Extra NeoForge Artifacts'
           path: neoforge/build/libs

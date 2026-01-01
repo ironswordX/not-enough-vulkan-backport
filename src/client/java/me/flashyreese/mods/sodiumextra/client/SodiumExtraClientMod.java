@@ -18,7 +18,7 @@ public class SodiumExtraClientMod {
 
     public static Logger logger() {
         if (LOGGER == null) {
-            LOGGER = LoggerFactory.getLogger("Sodium Extra");
+            LOGGER = LoggerFactory.getLogger("Vulkan Extra");
         }
 
         return LOGGER;
@@ -34,21 +34,17 @@ public class SodiumExtraClientMod {
 
     public static CaffeineConfig mixinConfig() {
         if (MIXIN_CONFIG == null) {
-            MIXIN_CONFIG = CaffeineConfig.builder("Sodium Extra").withSettingsKey("sodium-extra:options")
+            MIXIN_CONFIG = CaffeineConfig.builder("Vulkan Extra").withSettingsKey("vulkan-extra:options")
                     .addMixinOption("core", true, false)
 
-                    .addMixinOption("adaptive_sync", true)
                     .addMixinOption("animation", true)
                     .addMixinOption("biome_colors", true)
                     .addMixinOption("cloud", true)
-                    .addMixinOption("compat", true, false)
                     .addMixinOption("fog", true)
                     .addMixinOption("fps", true)
                     .addMixinOption("gui", true)
                     .addMixinOption("instant_sneak", true)
                     .addMixinOption("light_updates", true)
-                    .addMixinOption("optimizations", true)
-                    .addMixinOption("optimizations.beacon_beam_rendering", true)
                     .addMixinOption("particle", true)
                     .addMixinOption("prevent_shaders", true)
                     .addMixinOption("reduce_resolution_on_mac", true)
@@ -65,13 +61,13 @@ public class SodiumExtraClientMod {
 
                     //.withLogger(SodiumExtraClientMod.logger())
                     .withInfoUrl("https://github.com/FlashyReese/sodium-extra-fabric/wiki/Configuration-File")
-                    .build(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra.properties"));
+                    .build(FabricLoader.getInstance().getConfigDir().resolve("vulkan-extra.properties"));
         }
         return MIXIN_CONFIG;
     }
 
     private static SodiumExtraGameOptions loadConfig() {
-        return SodiumExtraGameOptions.load(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra-options.json").toFile());
+        return SodiumExtraGameOptions.load(FabricLoader.getInstance().getConfigDir().resolve("vulkan-extra-options.json").toFile());
     }
 
     public static void onTick(Minecraft client) {

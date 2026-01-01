@@ -1,14 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "sodium-extra",
-  "version": "${version}",
-  "name": "Sodium Extra",
-  "description": "Features that shouldn't be in Sodium.",
+  "id": "vulkan-extra",
+  "version": "1.0.0",
+  "name": "Vulkan Extra",
+  "description": "Features that shouldn't be in VulkanMod.",
   "authors": [
     {
       "name": "FlashyReese",
       "contact": {
         "homepage": "https://flashyreese.me"
+      }
+    },
+    {
+      "name": "amiralimollaei",
+      "contact": {
+        "homepage": "https://amiralimollaei.github.io"
       }
     }
   ],
@@ -21,12 +27,12 @@
     "Madis0"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/sodium-extra",
-    "sources": "https://github.com/FlashyReese/sodium-extra-fabric",
-    "issues": "https://github.com/FlashyReese/sodium-extra-fabric/issues"
+    "homepage": "https://modrinth.com/mod/vulkan-extra",
+    "sources": "https://github.com/FlashyReese/vulkan-extra-fabric",
+    "issues": "https://github.com/FlashyReese/vulkan-extra-fabric/issues"
   },
   "license": "LGPLv3",
-  "icon": "assets/sodium-extra/textures/icon.png",
+  "icon": "assets/vulkan-extra/textures/icon.png",
   "environment": "client",
   "entrypoints": {},
   "custom": {
@@ -39,15 +45,15 @@
         "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/sodium-extra",
         "modmenu.discord": "https://flashyreese.me/discord",
         "modmenu.donate": "https://ko-fi.com/flashyreese",
-        "modmenu.github_releases": "https://github.com/FlashyReese/sodium-extra-fabric/releases",
+        "modmenu.github_releases": "https://github.com/amiralimollaei/vulkan-extra/releases",
         "modmenu.kofi": "https://ko-fi.com/flashyreese",
-        "modmenu.modrinth": "https://modrinth.com/mod/sodium-extra"
+        "modmenu.modrinth": "https://modrinth.com/mod/vulkan-extra"
       }
     }
   },
-  "accessWidener": "sodium-extra.accesswidener",
+  "accessWidener": "vulkan-extra.accesswidener",
   "mixins": [
-    "sodium-extra.mixins.json"
+    "vulkan-extra.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.18",

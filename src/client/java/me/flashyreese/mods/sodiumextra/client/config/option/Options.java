@@ -46,7 +46,7 @@ public abstract class Options {
 
         if (!ComponentUtils.isTranslationResolvable(translatable)) {
             translatable = Component.translatable(
-                    "sodium-extra.option.".concat(category).concat(".tooltips"),
+                    "vulkan-extra.option.".concat(category).concat(".tooltips"),
                     translatableName(identifier, category)
             );
         }
@@ -54,7 +54,7 @@ public abstract class Options {
     }
 
     private static Component fogTypeName(FogType type) {
-        String key = "sodium-extra.option.fog_type." + type.name().toLowerCase();
+        String key = "vulkan-extra.option.fog_type." + type.name().toLowerCase();
         Component translated = Component.translatable(key);
 
         if (!ComponentUtils.isTranslationResolvable(translated)) {
@@ -67,11 +67,11 @@ public abstract class Options {
     }
 
     private static Component fogTypeTooltip(FogType type) {
-        String key = "sodium-extra.option.fog_type." + type.name().toLowerCase() + ".tooltip";
+        String key = "vulkan-extra.option.fog_type." + type.name().toLowerCase() + ".tooltip";
         Component translated = Component.translatable(key);
 
         if (!ComponentUtils.isTranslationResolvable(translated)) {
-            return Component.translatable("sodium-extra.option.fog_type.default.tooltip", fogTypeName(type));
+            return Component.translatable("vulkan-extra.option.fog_type.default.tooltip", fogTypeName(type));
         }
         return translated;
     }
@@ -82,31 +82,31 @@ public abstract class Options {
                         new SwitchOption(parseVanillaString("gui.socialInteractions.tab_all"),
                                 value -> config.animationSettings.animation = value,
                                 () -> config.animationSettings.animation)
-                                .setTooltip(Component.translatable("sodium-extra.option.animations_all.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animations_all.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.water"),
                                 value -> config.animationSettings.water = value,
                                 () -> config.animationSettings.water)
-                                .setTooltip(Component.translatable("sodium-extra.option.animate_water.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animate_water.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.lava"),
                                 value -> config.animationSettings.animation = value,
                                 () -> config.animationSettings.lava)
-                                .setTooltip(Component.translatable("sodium-extra.option.animate_lava.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animate_lava.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.fire"),
                                 value -> config.animationSettings.animation = value,
                                 () -> config.animationSettings.fire)
-                                .setTooltip(Component.translatable("sodium-extra.option.animate_fire.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animate_fire.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.nether_portal"),
                                 value -> config.animationSettings.animation = value,
                                 () -> config.animationSettings.portal)
-                                .setTooltip(Component.translatable("sodium-extra.option.animate_portal.tooltip")),
-                        new SwitchOption(parseVanillaString("sodium-extra.option.block_animations"),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animate_portal.tooltip")),
+                        new SwitchOption(parseVanillaString("vulkan-extra.option.block_animations"),
                                 value -> config.animationSettings.blockAnimations = value,
                                 () -> config.animationSettings.portal)
-                                .setTooltip(Component.translatable("sodium-extra.option.block_animations.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.block_animations.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.sculk_sensor"),
                                 value -> config.animationSettings.sculkSensor = value,
                                 () -> config.animationSettings.sculkSensor)
-                                .setTooltip(Component.translatable("sodium-extra.option.animate_sculk_sensor.tooltip")),
+                                .setTooltip(Component.translatable("vulkan-extra.option.animate_sculk_sensor.tooltip")),
                 })
         };
     }
@@ -117,7 +117,7 @@ public abstract class Options {
                 new SwitchOption(parseVanillaString("gui.socialInteractions.tab_all"),
                         value -> config.particleSettings.particles = value,
                         () -> config.particleSettings.particles)
-                        .setTooltip(Component.translatable("sodium-extra.option.particles_all.tooltip"))
+                        .setTooltip(Component.translatable("vulkan-extra.option.particles_all.tooltip"))
                 }
         );
 
@@ -126,15 +126,15 @@ public abstract class Options {
                 new SwitchOption(parseVanillaString("subtitles.entity.generic.splash"),
                         value -> config.particleSettings.rainSplash = value,
                         () -> config.particleSettings.rainSplash)
-                        .setTooltip(Component.translatable("sodium-extra.option.rain_splash.tooltip")),
+                        .setTooltip(Component.translatable("vulkan-extra.option.rain_splash.tooltip")),
                 new SwitchOption(parseVanillaString("subtitles.block.generic.break"),
                         value -> config.particleSettings.blockBreak = value,
                         () -> config.particleSettings.blockBreak)
-                        .setTooltip(Component.translatable("sodium-extra.option.block_break.tooltip")),
+                        .setTooltip(Component.translatable("vulkan-extra.option.block_break.tooltip")),
                 new SwitchOption(parseVanillaString("subtitles.block.generic.hit"),
                 value -> config.particleSettings.blockBreaking = value,
                         () -> config.particleSettings.blockBreaking)
-                        .setTooltip(Component.translatable("sodium-extra.option.block_breaking.tooltip")),
+                        .setTooltip(Component.translatable("vulkan-extra.option.block_breaking.tooltip")),
             }
         );
 
@@ -168,8 +168,8 @@ public abstract class Options {
     }
 
     private static SwitchOption newStandardSwitchOption(String key, Consumer<Boolean> setter, Supplier<Boolean> getter) {
-        SwitchOption option = new SwitchOption(Component.translatable("sodium-extra.option."+key), setter, getter);
-        option.setTooltip(Component.translatable("sodium-extra.option."+key+".tooltip"));
+        SwitchOption option = new SwitchOption(Component.translatable("vulkan-extra.option."+key), setter, getter);
+        option.setTooltip(Component.translatable("vulkan-extra.option."+key+".tooltip"));
         return option;
     }
 
@@ -195,7 +195,7 @@ public abstract class Options {
                         new SwitchOption(parseVanillaString("soundCategory.weather"),
                                 value -> config.detailSettings.sky = value,
                                 () -> config.detailSettings.sky
-                        ).setTooltip(Component.translatable("sodium-extra.option.rain_snow.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.rain_snow.tooltip")),
                         newStandardSwitchOption("biome_colors",
                                 value -> config.detailSettings.biomeColors = value,
                                 () -> config.detailSettings.biomeColors
@@ -235,53 +235,53 @@ public abstract class Options {
                         parseVanillaString("entity.minecraft.item_frame"),
                         value -> config.renderSettings.itemFrame = value,
                         () -> config.renderSettings.itemFrame
-                ).setTooltip(Component.translatable("sodium-extra.option.item_frames.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.item_frames.tooltip")),
                 new SwitchOption(
                         parseVanillaString("entity.minecraft.armor_stand"),
                         value -> config.renderSettings.armorStand = value,
                         () -> config.renderSettings.armorStand
-                ).setTooltip(Component.translatable("sodium-extra.option.armor_stands.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.armor_stands.tooltip")),
                 new SwitchOption(
                         parseVanillaString("entity.minecraft.painting"),
                         value -> config.renderSettings.painting = value,
                         () -> config.renderSettings.painting
-                ).setTooltip(Component.translatable("sodium-extra.option.paintings.tooltip"))
+                ).setTooltip(Component.translatable("vulkan-extra.option.paintings.tooltip"))
         }));
 
         optionBlocks.add(new OptionBlock("render.block", new Option[]{
                 new SwitchOption(
-                        Component.translatable("sodium-extra.option.beacon_beam"),
+                        Component.translatable("vulkan-extra.option.beacon_beam"),
                         value -> config.renderSettings.beaconBeam = value,
                         () -> config.renderSettings.beaconBeam
-                ).setTooltip(Component.translatable("sodium-extra.option.beacon_beam.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.beacon_beam.tooltip")),
                 new SwitchOption(
-                        Component.translatable("sodium-extra.option.limit_beacon_beam_height"),
+                        Component.translatable("vulkan-extra.option.limit_beacon_beam_height"),
                         value -> config.renderSettings.limitBeaconBeamHeight = value,
                         () -> config.renderSettings.limitBeaconBeamHeight
-                ).setTooltip(Component.translatable("sodium-extra.option.limit_beacon_beam_height.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.limit_beacon_beam_height.tooltip")),
                 new SwitchOption(
-                        Component.translatable("sodium-extra.option.enchanting_table_book"),
+                        Component.translatable("vulkan-extra.option.enchanting_table_book"),
                         value -> config.renderSettings.enchantingTableBook = value,
                         () -> config.renderSettings.enchantingTableBook
-                ).setTooltip(Component.translatable("sodium-extra.option.enchanting_table_book.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.enchanting_table_book.tooltip")),
                 new SwitchOption(
                         parseVanillaString("block.minecraft.piston"),
                         value -> config.renderSettings.piston = value,
                         () -> config.renderSettings.piston
-                ).setTooltip(Component.translatable("sodium-extra.option.piston.tooltip"))
+                ).setTooltip(Component.translatable("vulkan-extra.option.piston.tooltip"))
         }));
 
         optionBlocks.add(new OptionBlock("name tag", new Option[]{
                 new SwitchOption(
-                        Component.translatable("sodium-extra.option.item_frame_name_tag"),
+                        Component.translatable("vulkan-extra.option.item_frame_name_tag"),
                         value -> config.renderSettings.itemFrameNameTag = value,
                         () -> config.renderSettings.itemFrameNameTag
-                ).setTooltip(Component.translatable("sodium-extra.option.item_frame_name_tag.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.item_frame_name_tag.tooltip")),
                 new SwitchOption(
-                        Component.translatable("sodium-extra.option.player_name_tag"),
+                        Component.translatable("vulkan-extra.option.player_name_tag"),
                         value -> config.renderSettings.playerNameTag = value,
                         () -> config.renderSettings.playerNameTag
-                ).setTooltip(Component.translatable("sodium-extra.option.player_name_tag.tooltip")),
+                ).setTooltip(Component.translatable("vulkan-extra.option.player_name_tag.tooltip")),
         }));
 
         OptionBlock[] optionBlockArray = new OptionBlock[optionBlocks.size()];
@@ -293,7 +293,7 @@ public abstract class Options {
     private static OptionBlock newFogRenderOptionBlock(FogType fogType) {
         // Environment Start
         RangeOption envStart = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.environment_start", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.environment_start", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -301,11 +301,11 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentStartMultiplier
         );
-        envStart.setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_start.tooltip"));
+        envStart.setTooltip(Component.translatable("vulkan-extra.option.fog_type.environment_start.tooltip"));
 
         // Environment End
         RangeOption envEnd = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.environment_end", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.environment_end", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -313,11 +313,11 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).environmentEndMultiplier
         );
-        envEnd.setTooltip(Component.translatable("sodium-extra.option.fog_type.environment_end.tooltip"));
+        envEnd.setTooltip(Component.translatable("vulkan-extra.option.fog_type.environment_end.tooltip"));
 
         // Render Start
         RangeOption renderStart = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.render_distance_start", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.render_distance_start", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -325,11 +325,11 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceStartMultiplier
         );
-        renderStart.setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_start.tooltip"));
+        renderStart.setTooltip(Component.translatable("vulkan-extra.option.fog_type.render_distance_start.tooltip"));
 
         // Render End
         RangeOption renderEnd = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.render_distance_end", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.render_distance_end", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -337,11 +337,11 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).renderDistanceEndMultiplier
         );
-        renderEnd.setTooltip(Component.translatable("sodium-extra.option.fog_type.render_distance_end.tooltip"));
+        renderEnd.setTooltip(Component.translatable("vulkan-extra.option.fog_type.render_distance_end.tooltip"));
 
         // Sky End
         RangeOption skyEnd = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.sky_end", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.sky_end", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -349,11 +349,11 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).skyEndMultiplier
         );
-        skyEnd.setTooltip(Component.translatable("sodium-extra.option.fog_type.sky_end.tooltip"));
+        skyEnd.setTooltip(Component.translatable("vulkan-extra.option.fog_type.sky_end.tooltip"));
 
         // Sky End
         RangeOption cloudEnd = new RangeOption(
-                Component.translatable("sodium-extra.option.fog_type.cloud_end", fogTypeName(fogType)),
+                Component.translatable("vulkan-extra.option.fog_type.cloud_end", fogTypeName(fogType)),
                 0, 300, 1,
                 val -> {
                     FogTypeConfig ftconfig = config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
@@ -361,7 +361,7 @@ public abstract class Options {
                 },
                 () -> config.renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig()).cloudEndMultiplier
         );
-        cloudEnd.setTooltip(Component.translatable("sodium-extra.option.fog_type.cloud_end.tooltip"));
+        cloudEnd.setTooltip(Component.translatable("vulkan-extra.option.fog_type.cloud_end.tooltip"));
 
         SwitchOption all = new SwitchOption(
                 fogTypeName(fogType),
@@ -387,104 +387,104 @@ public abstract class Options {
         return new OptionBlock[]{
                 new OptionBlock("reduce_resolution_on_mac", (SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.reduce_resolution_on_mac").isEnabled() && System.getProperty("os.name").toLowerCase().contains("mac")) ? new Option[]{
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.reduce_resolution_on_mac"),
+                                Component.translatable("vulkan-extra.option.reduce_resolution_on_mac"),
                                 (value) -> config.extraSettings.reduceResolutionOnMac = value,
                                 () -> config.extraSettings.reduceResolutionOnMac
-                        ).setTooltip(Component.translatable("sodium-extra.option.reduce_resolution_on_mac.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.reduce_resolution_on_mac.tooltip"))
                 } : new Option<?>[]{}),
                 new OptionBlock("overlay", new Option[]{
                         new CyclingOption<>(
-                                Component.translatable("sodium-extra.option.overlay_corner"),
+                                Component.translatable("vulkan-extra.option.overlay_corner"),
                                 SodiumExtraGameOptions.OverlayCorner.values(),
                                 (value) -> config.extraSettings.overlayCorner = value,
                                 () -> config.extraSettings.overlayCorner
-                        ).setTooltip(Component.translatable("sodium-extra.option.overlay_corner.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.overlay_corner.tooltip"))
                         .setTranslator(SodiumExtraGameOptions.OverlayCorner::getLocalizedName),
                         new CyclingOption<>(
-                                Component.translatable("sodium-extra.option.text_contrast"),
+                                Component.translatable("vulkan-extra.option.text_contrast"),
                                 SodiumExtraGameOptions.TextContrast.values(),
                                 (value) -> config.extraSettings.textContrast = value,
                                 () -> config.extraSettings.textContrast
-                        ).setTooltip(Component.translatable("sodium-extra.option.text_contrast.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.text_contrast.tooltip"))
                         .setTranslator(SodiumExtraGameOptions.TextContrast::getLocalizedName),
-                        new SwitchOption(Component.translatable("sodium-extra.option.show_fps"),
+                        new SwitchOption(Component.translatable("vulkan-extra.option.show_fps"),
                                 (value) -> config.extraSettings.showFps = value,
                                 () -> config.extraSettings.showFps
-                        ).setTooltip(Component.translatable("sodium-extra.option.show_fps.tooltip")),
-                        new SwitchOption(Component.translatable("sodium-extra.option.show_fps_extended"),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.show_fps.tooltip")),
+                        new SwitchOption(Component.translatable("vulkan-extra.option.show_fps_extended"),
                                 (value) -> config.extraSettings.showFPSExtended = value,
                                 () -> config.extraSettings.showFPSExtended
-                        ).setTooltip(Component.translatable("sodium-extra.option.show_coordinates.tooltip")),
-                        new SwitchOption(Component.translatable("sodium-extra.option.show_coordinates"),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.show_coordinates.tooltip")),
+                        new SwitchOption(Component.translatable("vulkan-extra.option.show_coordinates"),
                                 (value) -> config.extraSettings.showCoords = value,
                                 () -> config.extraSettings.showCoords
-                        ).setTooltip(Component.translatable("sodium-extra.option.show_coordinates.tooltip")),
-                        new RangeOption(Component.translatable("sodium-extra.option.cloud_height"),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.show_coordinates.tooltip")),
+                        new RangeOption(Component.translatable("vulkan-extra.option.cloud_height"),
                                 -64, 319, 1,
                                 (value) -> config.extraSettings.cloudHeight = value,
                                 () -> config.extraSettings.cloudHeight
-                        ).setTooltip(Component.translatable("sodium-extra.option.cloud_height.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.cloud_height.tooltip"))
                 }),
                 new OptionBlock("advanced item tooltips", new Option[]{
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.advanced_item_tooltips"),
+                                Component.translatable("vulkan-extra.option.advanced_item_tooltips"),
                                 (value) -> Minecraft.getInstance().options.advancedItemTooltips = value,
                                 () -> Minecraft.getInstance().options.advancedItemTooltips
-                        ).setTooltip(Component.translatable("sodium-extra.option.advanced_item_tooltips.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.advanced_item_tooltips.tooltip"))
                         .setOnApply(v -> Minecraft.getInstance().options.save()),
                 }),
                 new OptionBlock("toasts", new Option[]{
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.toasts"),
+                                Component.translatable("vulkan-extra.option.toasts"),
                                 (value) -> config.extraSettings.toasts = value,
                                 () -> config.extraSettings.toasts
-                        ).setTooltip(Component.translatable("sodium-extra.option.toasts.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.toasts.tooltip")),
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.advancement_toast"),
+                                Component.translatable("vulkan-extra.option.advancement_toast"),
                                 (value) -> config.extraSettings.advancementToast = value,
                                 () -> config.extraSettings.advancementToast
-                        ).setTooltip(Component.translatable("sodium-extra.option.advancement_toast.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.advancement_toast.tooltip")),
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.recipe_toast"),
+                                Component.translatable("vulkan-extra.option.recipe_toast"),
                                 (value) -> config.extraSettings.recipeToast = value,
                                 () -> config.extraSettings.recipeToast
-                        ).setTooltip(Component.translatable("sodium-extra.option.recipe_toast.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.recipe_toast.tooltip")),
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.system_toast"),
+                                Component.translatable("vulkan-extra.option.system_toast"),
                                 (value) -> config.extraSettings.systemToast = value,
                                 () -> config.extraSettings.systemToast
-                        ).setTooltip(Component.translatable("sodium-extra.option.system_toast.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.system_toast.tooltip")),
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.tutorial_toast"),
+                                Component.translatable("vulkan-extra.option.tutorial_toast"),
                                 (value) -> config.extraSettings.tutorialToast = value,
                                 () -> config.extraSettings.tutorialToast
-                        ).setTooltip(Component.translatable("sodium-extra.option.tutorial_toast.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.tutorial_toast.tooltip"))
                 }),
                 new OptionBlock("other", new Option[]{
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.instant_sneak"),
+                                Component.translatable("vulkan-extra.option.instant_sneak"),
                                 (value) -> config.extraSettings.instantSneak = value,
                                 () -> config.extraSettings.instantSneak
-                        ).setTooltip(Component.translatable("sodium-extra.option.instant_sneak.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.instant_sneak.tooltip")),
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.prevent_shaders"),
+                                Component.translatable("vulkan-extra.option.prevent_shaders"),
                                 (value) -> config.extraSettings.preventShaders = value,
                                 () -> config.extraSettings.preventShaders
-                        ).setTooltip(Component.translatable("sodium-extra.option.prevent_shaders.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.prevent_shaders.tooltip"))
                         .setOnApply(v -> minecraft.delayTextureReload())
                 }),
                 new OptionBlock("debug hud", new Option[]{
                         new SwitchOption(
-                                Component.translatable("sodium-extra.option.steady_debug_hud"),
+                                Component.translatable("vulkan-extra.option.steady_debug_hud"),
                                 (value) -> config.extraSettings.steadyDebugHud = value,
                                 () -> config.extraSettings.steadyDebugHud
-                        ).setTooltip(Component.translatable("sodium-extra.option.steady_debug_hud.tooltip")),
+                        ).setTooltip(Component.translatable("vulkan-extra.option.steady_debug_hud.tooltip")),
                         new RangeOption(
-                                Component.translatable("sodium-extra.option.steady_debug_hud_refresh_interval"),
+                                Component.translatable("vulkan-extra.option.steady_debug_hud_refresh_interval"),
                                 1, 20, 1,
                                 (value) -> config.extraSettings.steadyDebugHudRefreshInterval = value,
                                 () -> config.extraSettings.steadyDebugHudRefreshInterval
-                        ).setTooltip(Component.translatable("sodium-extra.option.steady_debug_hud_refresh_interval.tooltip"))
+                        ).setTooltip(Component.translatable("vulkan-extra.option.steady_debug_hud_refresh_interval.tooltip"))
                 }),
         };
     }
