@@ -17,7 +17,7 @@ Features that shouldn't be in VulkanMod, a fork of Sodium Extra.
 1. Clone the repository and navigate into the cloned repository.
    ```
    git clone https://github.com/amiralimollaei/vulkan-extra.git
-   cd vulkan-extra-fabric
+   cd vulkan-extra
    ```
 2. Navigate to the directory you've cloned this repository and launch a build with Gradle. If you are not using the Gradle wrapper, simply replace `gradlew` with `gradle` or the path to it.
    - Windows
