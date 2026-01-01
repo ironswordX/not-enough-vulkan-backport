@@ -38,7 +38,7 @@
   "custom": {
     "modmenu": {
       "parent": {
-        "id": "sodium"
+        "id": "vulkanmod"
       },
       "links": {
         "modmenu.crowdin": "https://crowdin.com/project/sodium-extra",
