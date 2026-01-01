@@ -7,7 +7,7 @@
 [![CurseForge](http://cf.way2muchnoise.eu/title/447673.svg)](https://www.curseforge.com/minecraft/mc-mods/vulkan-extra)
 [![Support Server](https://img.shields.io/discord/748363294749753484.svg?color=7289da&label=FlashyReese&logo=discord&style=flat-square)](https://flashyreese.me/discord)
 
-Features that shouldn't be in Sodium.
+Features that shouldn't be in VulkanMod, a fork of Sodium Extra.
 
 ## Building from source
 ### Prerequisites
@@ -16,7 +16,7 @@ Features that shouldn't be in Sodium.
 ### Compiling
 1. Clone the repository and navigate into the cloned repository.
    ```
-   git clone https://github.com/FlashyReese/vulkan-extra-fabric.git
+   git clone https://github.com/amiralimollaei/vulkan-extra.git
    cd vulkan-extra-fabric
    ```
 2. Navigate to the directory you've cloned this repository and launch a build with Gradle. If you are not using the Gradle wrapper, simply replace `gradlew` with `gradle` or the path to it.
