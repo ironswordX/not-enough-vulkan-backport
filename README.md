@@ -33,7 +33,7 @@ Features that shouldn't be in VulkanMod, a fork of Sodium Extra.
 ## Contributing to localization
 **By submitting translations, you are agreeing to have them licensed under the [Creative Commons Zero (CC0)](https://creativecommons.org/share-your-work/public-domain/cc0/) license.**
 
-You can contribute to the translation effort on our Crowdin [project page](https://crowdin.com/project/vulkan-extra)! First you'll need to [register](https://accounts.crowdin.com/register) a Crowdin account if you haven't already. Translators are able to **translate** (submit a translation for an untranslated phrase), **suggest** (propose a better translation compared to an existing one), or **vote** (vote up or down the quality of a translation).
+You can contribute to the translation effort on our Crowdin [project page](https://crowdin.com/project/sodium-extra)! First you'll need to [register](https://accounts.crowdin.com/register) a Crowdin account if you haven't already. Translators are able to **translate** (submit a translation for an untranslated phrase), **suggest** (propose a better translation compared to an existing one), or **vote** (vote up or down the quality of a translation).
 
 For more information on using Crowdin, please see their "[Intro For Volunteer Translators](https://support.crowdin.com/for-volunteer-translators/)" support page.
 
