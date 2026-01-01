@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra si klade za cíl přenést většinu vnímatelných možností z OptiFine do Sodia; navíc poskytuje další funkce, jako jsou vizuální opravy chyb a jiné možnosti zvýšení výkonu, které zatím nejsou dostupné v Sodiu.",
-  "modmenu.summaryTranslation.vulkan-extra": "Funkce, které by neměly být v Sodiu.",
+  "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra si klade za cíl přenést většinu vnímatelných možností z OptiFine do VulkanMod; navíc poskytuje další funkce, jako jsou vizuální opravy chyb a jiné možnosti zvýšení výkonu, které zatím nejsou dostupné v Sodiu.",
+  "modmenu.summaryTranslation.vulkan-extra": "Funkce, které by neměly být v VulkanMod.",
   "options.dimensions.minecraft.overworld": "Běžný svět",
   "options.dimensions.minecraft.the_end": "End",
   "options.dimensions.minecraft.the_nether": "Nether",

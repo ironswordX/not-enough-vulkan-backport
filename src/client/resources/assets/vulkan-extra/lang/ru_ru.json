@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra стремится восполнить нехватку настроек персонализации графики из OptiFine, дополняя их исправлениями графических ошибок и прочими настройками производительности, которых пока нет в Sodium.",
-  "modmenu.summaryTranslation.vulkan-extra": "Функции, выходящие за рамки Sodium.",
+  "modmenu.summaryTranslation.vulkan-extra": "Функции, выходящие за рамки VulkanMod.",
   "options.dimensions.minecraft.overworld": "в Верхнем мире",
   "options.dimensions.minecraft.the_end": "в Энде",
   "options.dimensions.minecraft.the_nether": "в Незере",

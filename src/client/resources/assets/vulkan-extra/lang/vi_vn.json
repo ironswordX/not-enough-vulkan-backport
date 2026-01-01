@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Mục tiêu của Vulkan Extra là mang hầu hết các tùy chọn của OptiFine vào Sodium; cũng như bổ sung một số tính năng, chẳng hạn như sửa các lỗi trực quan cùng các tinh chỉnh hiệu năng khác chưa có trong Sodium.",
-  "modmenu.summaryTranslation.vulkan-extra": "Các tính năng không sẵn có trong Sodium.",
+  "modmenu.summaryTranslation.vulkan-extra": "Các tính năng không sẵn có trong VulkanMod.",
   "options.dimensions.minecraft.overworld": "Thế giới thực",
   "options.dimensions.minecraft.the_end": "The End",
   "options.dimensions.minecraft.the_nether": "Nether",

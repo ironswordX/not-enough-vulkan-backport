@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "A Vulkan Extra célja, hogy az OptiFine szemet gyönyörködtető opcióinak nagy részét a Sodiumra vigye; emellett néhány olyan funkciót is biztosít, mint a vizuális hibajavítások és más teljesítményopciók, amelyek még nem állnak rendelkezésre a Sodiumon.",
-  "modmenu.summaryTranslation.vulkan-extra": "Jellemzők, amelyeknek nem kellene a Sodiumban lenniük.",
+  "modmenu.summaryTranslation.vulkan-extra": "Jellemzők, amelyeknek nem kellene a VulkanMod lenniük.",
   "options.dimensions.minecraft.overworld": "Felvilág",
   "options.dimensions.minecraft.the_end": "Vég",
   "options.dimensions.minecraft.the_nether": "Alvilág",

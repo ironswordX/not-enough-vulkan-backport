@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra toob enamiku OptiFine'i silmailuvõimalustest Sodiumile; lisaks pakub mõningaid täiendavaid funktsioone, nagu visuaalsed veaparandused ja muud jõudlusvõimalused, mida Sodiumil veel ei ole.",
-  "modmenu.summaryTranslation.vulkan-extra": "Funktsioonid, mis ei peaks Sodiumis olema.",
+  "modmenu.summaryTranslation.vulkan-extra": "Funktsioonid, mis ei peaks VulkanMod olema.",
   "options.dimensions.minecraft.overworld": "Pealmaailm",
   "options.dimensions.minecraft.the_end": "End",
   "options.dimensions.minecraft.the_nether": "Nether",

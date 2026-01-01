@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra hat das Ziel, die meisten der optisch aufregenden Optionen von OptiFine in Sodium zu integrieren; zusätzlich zu einigen Funktionen wie visuellen Fehlerkorrekturen und anderen Leistungsoptionen, die in Sodium noch nicht verfügbar sind.",
-  "modmenu.summaryTranslation.vulkan-extra": "Funktionen, die nicht in Sodium sein sollten.",
+  "modmenu.summaryTranslation.vulkan-extra": "Funktionen, die nicht in VulkanMod sein sollten.",
   "options.dimensions.minecraft.overworld": "Oberwelt",
   "options.dimensions.minecraft.the_end": "Ende",
   "options.dimensions.minecraft.the_nether": "Nether",

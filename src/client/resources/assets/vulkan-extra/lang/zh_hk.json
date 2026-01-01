@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra 旨在将大部分 OptiFine 中赏心悦目的选项带到 Sodium；此外，还提供一些功能，比如在 Sodium 中还没有提供的一些视觉错误修复和其他性能选项。",
-  "modmenu.summaryTranslation.vulkan-extra": "不应该在Sodium中的功能。",
+  "modmenu.summaryTranslation.vulkan-extra": "不应该在VulkanMod中的功能。",
   "options.dimensions.minecraft.overworld": "主世界",
   "options.dimensions.minecraft.the_end": "末地",
   "options.dimensions.minecraft.the_nether": "下界",

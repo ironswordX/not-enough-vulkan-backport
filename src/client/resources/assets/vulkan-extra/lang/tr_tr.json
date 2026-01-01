@@ -1,6 +1,6 @@
 {
   "modmenu.descriptionTranslation.vulkan-extra": "Vulkan Extra, OptiFine'ın göz alıcı seçeneklerinin çoğunu Sodium'a getirmeyi hedefliyor; görsel hata düzeltmeleri ve henüz Sodium'da bulunmayan diğer performans seçenekleri gibi bazı özelliklerin sağlanmasına ek olarak.",
-  "modmenu.summaryTranslation.vulkan-extra": "Sodium'da olmaması gereken özellikler.",
+  "modmenu.summaryTranslation.vulkan-extra": "VulkanMod'da olmaması gereken özellikler.",
   "options.dimensions.minecraft.overworld": "Dünya",
   "options.dimensions.minecraft.the_end": "End",
   "options.dimensions.minecraft.the_nether": "Nether",
