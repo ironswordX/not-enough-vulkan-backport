@@ -24,7 +24,7 @@ public final class CaffeineConfig {
     private final String modName;
     private Logger logger;
 
-    private static final CaffeineConfigPlatform PLATFORM = ServiceLoader.load(CaffeineConfigPlatform.class).findFirst().get();
+    private static final CaffeineConfigPlatform PLATFORM = new CaffeineConfigFabric();
 
     private CaffeineConfig(String modName) {
         this.modName = modName;
