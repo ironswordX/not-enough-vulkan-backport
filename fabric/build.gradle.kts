@@ -39,7 +39,8 @@ dependencies {
     addEmbeddedFabricModule("fabric-rendering-fluids-v1")
     addEmbeddedFabricModule("fabric-resource-loader-v0")
     compileOnly(project(":common"))
-    modImplementation("net.caffeinemc:sodium-fabric:$SODIUM_VERSION")
+    //modImplementation("net.caffeinemc:sodium-fabric:$SODIUM_VERSION")
+    modImplementation(files("libs/VulkanMod_1.21.11-0.5.8-beta.1-patched.jar"))
 }
 
 tasks.test {

@@ -6,22 +6,18 @@
   "refmap": "sodium-extra.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "adaptive_sync.MixinWindow",
     "animation.MixinSpriteContentsAnimationState",
     "animation.MixinTextureAtlas",
     "biome_colors.MixinBiomeColors",
     "cloud.MixinLevelRenderer",
-    "gui.MixinGui",
-    "gui.MixinMinecraftClient",
     "fog.MixinFogEnvironment",
     "fog.MixinFogRenderer",
     "fps.MixinGameRenderer",
     "gui.MinecraftClientAccessor",
+    "gui.MixinGui",
+    "gui.MixinMinecraftClient",
     "instant_sneak.MixinCamera",
     "light_updates.MixinLevelLightEngine",
-    "optimizations.beacon_beam_rendering.LevelRendererAccessor",
-    "optimizations.beacon_beam_rendering.MixinBeaconRenderer",
-    "optimizations.beacon_beam_rendering.MixinVertexSerializerRegistryImpl",
     "particle.MixinClientLevel",
     "particle.MixinFireworkParticle",
     "particle.MixinLevelRenderer",
@@ -37,7 +33,8 @@
     "sky.MixinSkyRenderer",
     "sky_colors.MixinAtmosphericFogEnvironment",
     "steady_debug_hud.MixinDebugScreenOverlay",
-    "toasts.MixinToastManager"
+    "toasts.MixinToastManager",
+    "vulkanmod.VOptionScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

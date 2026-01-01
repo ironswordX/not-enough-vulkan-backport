@@ -3,7 +3,7 @@ package me.flashyreese.mods.sodiumextra.client;
 import me.flashyreese.mods.sodiumextra.client.config.SodiumExtraGameOptions;
 import me.flashyreese.mods.sodiumextra.client.gui.SodiumExtraHud;
 import net.caffeinemc.caffeineconfig.CaffeineConfig;
-import net.caffeinemc.mods.sodium.client.services.PlatformRuntimeInformation;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -65,13 +65,13 @@ public class SodiumExtraClientMod {
 
                     //.withLogger(SodiumExtraClientMod.logger())
                     .withInfoUrl("https://github.com/FlashyReese/sodium-extra-fabric/wiki/Configuration-File")
-                    .build(PlatformRuntimeInformation.getInstance().getConfigDirectory().resolve("sodium-extra.properties"));
+                    .build(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra.properties"));
         }
         return MIXIN_CONFIG;
     }
 
     private static SodiumExtraGameOptions loadConfig() {
-        return SodiumExtraGameOptions.load(PlatformRuntimeInformation.getInstance().getConfigDirectory().resolve("sodium-extra-options.json").toFile());
+        return SodiumExtraGameOptions.load(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra-options.json").toFile());
     }
 
     public static void onTick(Minecraft client) {

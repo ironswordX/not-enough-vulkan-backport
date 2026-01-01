@@ -26,6 +26,9 @@ dependencies {
             parchment("org.parchmentmc.data:parchment-${MINECRAFT_VERSION}:${PARCHMENT_VERSION}@zip")
         }
     })
+
+    modImplementation("net.fabricmc:fabric-loader:$FABRIC_LOADER_VERSION")
+
     compileOnly("io.github.llamalad7:mixinextras-common:0.3.5")
     annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5")
     compileOnly("net.fabricmc:sponge-mixin:0.13.2+mixin.0.8.5")
@@ -39,7 +42,8 @@ dependencies {
     addDependentFabricModule("fabric-block-view-api-v2")
     //addDependentFabricModule("fabric-renderer-api-v1")
 
-    modImplementation("net.caffeinemc:sodium-fabric:$SODIUM_VERSION")
+    //modImplementation("net.caffeinemc:sodium-fabric:$SODIUM_VERSION")
+    modImplementation(files("libs/VulkanMod_1.21.11-0.5.8-beta.1-patched.jar"))
 }
 
 tasks.withType<AbstractRemapJarTask>().forEach {

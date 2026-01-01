@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName;
 import it.unimi.dsi.fastutil.objects.Object2BooleanArrayMap;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import me.flashyreese.mods.sodiumextra.common.util.IdentifierSerializer;
-import net.caffeinemc.mods.sodium.api.config.StorageEventHandler;
-import net.caffeinemc.mods.sodium.client.gui.options.TextProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.material.FogType;
@@ -23,7 +21,7 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class SodiumExtraGameOptions implements StorageEventHandler {
+public class SodiumExtraGameOptions {
     private static final Gson gson = new GsonBuilder()
             .registerTypeAdapter(Identifier.class, new IdentifierSerializer())
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -75,7 +73,6 @@ public class SodiumExtraGameOptions implements StorageEventHandler {
         }
     }
 
-    @Override
     public void afterSave() {
         this.writeChanges();
     }
