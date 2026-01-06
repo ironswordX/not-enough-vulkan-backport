@@ -384,14 +384,17 @@ public abstract class Options {
     }
 
     public static OptionBlock[] getExtrasOpts() {
+        SwitchOption reduceResMacOs = new SwitchOption(
+                Component.translatable("vulkan-extra.option.reduce_resolution_on_mac"),
+                (value) -> config.extraSettings.reduceResolutionOnMac = value,
+                () -> config.extraSettings.reduceResolutionOnMac
+        );
+        reduceResMacOs.setTooltip(Component.translatable("vulkan-extra.option.reduce_resolution_on_mac.tooltip"));
+        reduceResMacOs.setActivationFn(() -> SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.reduce_resolution_on_mac").isEnabled() && System.getProperty("os.name").toLowerCase().contains("mac"));
         return new OptionBlock[]{
-                new OptionBlock("reduce_resolution_on_mac", (SodiumExtraClientMod.mixinConfig().getOptions().get("mixin.reduce_resolution_on_mac").isEnabled() && System.getProperty("os.name").toLowerCase().contains("mac")) ? new Option[]{
-                        new SwitchOption(
-                                Component.translatable("vulkan-extra.option.reduce_resolution_on_mac"),
-                                (value) -> config.extraSettings.reduceResolutionOnMac = value,
-                                () -> config.extraSettings.reduceResolutionOnMac
-                        ).setTooltip(Component.translatable("vulkan-extra.option.reduce_resolution_on_mac.tooltip"))
-                } : new Option<?>[]{}),
+                new OptionBlock("reduce_resolution_on_mac", new Option[]{
+                        reduceResMacOs
+                }),
                 new OptionBlock("overlay", new Option[]{
                         new CyclingOption<>(
                                 Component.translatable("vulkan-extra.option.overlay_corner"),
