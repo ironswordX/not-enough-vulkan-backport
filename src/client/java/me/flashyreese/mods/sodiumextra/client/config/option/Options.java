@@ -431,10 +431,12 @@ public abstract class Options {
                 new OptionBlock("advanced item tooltips", new Option[]{
                         new SwitchOption(
                                 Component.translatable("vulkan-extra.option.advanced_item_tooltips"),
-                                (value) -> Minecraft.getInstance().options.advancedItemTooltips = value,
+                                (value) -> {
+                                    Minecraft.getInstance().options.advancedItemTooltips = value;
+                                    Minecraft.getInstance().options.save();
+                                },
                                 () -> Minecraft.getInstance().options.advancedItemTooltips
                         ).setTooltip(Component.translatable("vulkan-extra.option.advanced_item_tooltips.tooltip"))
-                        .setOnApply(v -> Minecraft.getInstance().options.save()),
                 }),
                 new OptionBlock("toasts", new Option[]{
                         new SwitchOption(
@@ -471,10 +473,12 @@ public abstract class Options {
                         ).setTooltip(Component.translatable("vulkan-extra.option.instant_sneak.tooltip")),
                         new SwitchOption(
                                 Component.translatable("vulkan-extra.option.prevent_shaders"),
-                                (value) -> config.extraSettings.preventShaders = value,
+                                (value) -> {
+                                    config.extraSettings.preventShaders = value;
+                                    minecraft.levelRenderer.allChanged();
+                                },
                                 () -> config.extraSettings.preventShaders
                         ).setTooltip(Component.translatable("vulkan-extra.option.prevent_shaders.tooltip"))
-                        .setOnApply(v -> minecraft.delayTextureReload())
                 }),
                 new OptionBlock("debug hud", new Option[]{
                         new SwitchOption(
