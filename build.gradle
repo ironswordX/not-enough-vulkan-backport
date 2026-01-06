@@ -11,7 +11,19 @@ base {
 }
 
 repositories {
-    mavenCentral()
+    // Other repositories can go above or below Modrinth's. We don't need priority :)
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        // forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 loom {
@@ -42,7 +54,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // VulkanMod
-    modCompileOnly files("libs/VulkanMod_1.21.11-0.5.8-rc.1-patched.jar")
+    modCompileOnly "maven.modrinth:vulkanmod:UOlHod70"
 }
 
 processResources {
