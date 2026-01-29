@@ -14,7 +14,7 @@ import java.util.*;
 
 /**
  * <p>A mixin configuration object. Holds the {@link Option options} defined and handles overrides.</p>
- * 
+ *
  * @see CaffeineConfig.Builder
  */
 @SuppressWarnings("CanBeFinal")
@@ -32,14 +32,14 @@ public final class CaffeineConfig {
 
     /**
      * <p>Creates and returns a {@link CaffeineConfig.Builder} that can be used to create a {@link CaffeineConfig} object.</p>
-     * 
+     *
      * <p>Unless the methods in the builder are later called, the given {@code modName} will be used to get the logger and the JSON key.</p>
      * <p>The default logger is the one gotten from {@link LoggerFactory#getLogger(String)} with the name {@code modName+" Config"}, and the default
      * JSON key is {@code lowercase(modName):options}. For example, if {@code modName} is {@code ExampleMod}, logger will be {@code ExampleModConfig}
      * and JSON key will be {@code examplemod:options} </p>
-     * 
+     *
      * @param modName The name of the mod. Must not be {@code null}
-     * 
+     *
      * @return A new {@link CaffeineConfig.Builder} instance
      */
     public static CaffeineConfig.Builder builder(String modName) {
@@ -60,8 +60,8 @@ public final class CaffeineConfig {
      * @return The logger from this {@link CaffeineConfig}
      */
     public Logger getLogger() {
-		return logger;
-	}
+        return logger;
+    }
 
     /**
      * @see Builder#addOptionDependency(String, String, boolean)
@@ -289,10 +289,10 @@ public final class CaffeineConfig {
 
     /**
      * <p>A builder for {@link CaffeineConfig} instances.</p>
-     * 
-     * <p>Allows adding mixin options and creating depencencies between them, as well as 
+     *
+     * <p>Allows adding mixin options and creating depencencies between them, as well as
      * configuring various properties from this config.</p>
-     * 
+     *
      * @see CaffeineConfig#builder(String)
      */
     public final class Builder {
@@ -361,7 +361,7 @@ public final class CaffeineConfig {
 
         /**
          * <p>Sets the url to a resource with more information about the options to write in the config file header.</p>
-         * 
+         *
          * <p>If it's {@code null} or not set, the paragraph about help on editing the file will be skipped</p>
          * @param url A {@link String} representing the url, or {@code null} to disable the paragraph
          */
@@ -372,14 +372,14 @@ public final class CaffeineConfig {
 
         /**
          * <p>Builds a {@link CaffeineConfig} with the specified options, and populates the overrides for them.</p>
-         * 
-         * <p>This method will create a file in the given {@link Path} (and its parent directories if necessary) or 
+         *
+         * <p>This method will create a file in the given {@link Path} (and its parent directories if necessary) or
          * read from it if it already exists.</p>
-         * 
+         *
          * <p>It will also check for overrides in all loaded mods.</p>
-         * 
+         *
          * <p>This method can only be called once per builder object</p>
-         * 
+         *
          * @param path The {@link Path} to the settings file
          */
         public CaffeineConfig build(Path path) {

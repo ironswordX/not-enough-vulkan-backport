@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "vulkan-extra",
+  "id": "not-enough-vulkan",
   "version": "1.0.0",
-  "name": "Vulkan Extra",
-  "description": "Features that shouldn't be in VulkanMod.",
+  "name": "Not Enough Vulkan",
+  "description": "Features that shouldn't be in VulkanMod, a fork of Sodium Extra",
   "authors": [
     {
       "name": "FlashyReese",
@@ -27,12 +27,12 @@
     "Madis0"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/vulkan-extra",
-    "sources": "https://github.com/FlashyReese/vulkan-extra-fabric",
-    "issues": "https://github.com/FlashyReese/vulkan-extra-fabric/issues"
+    "homepage": "https://modrinth.com/mod/not-enough-vulkan",
+    "sources": "https://github.com/amiralimollaei/not-enough-vulkan",
+    "issues": "https://github.com/amiralimollaei/not-enough-vulkan/issues"
   },
   "license": "LGPLv3",
-  "icon": "assets/vulkan-extra/textures/icon.png",
+  "icon": "assets/not-enough-vulkan/textures/icon.png",
   "environment": "client",
   "entrypoints": {},
   "custom": {
@@ -45,15 +45,16 @@
         "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/sodium-extra",
         "modmenu.discord": "https://flashyreese.me/discord",
         "modmenu.donate": "https://ko-fi.com/flashyreese",
-        "modmenu.github_releases": "https://github.com/amiralimollaei/vulkan-extra/releases",
+        "modmenu.github_releases": "https://github.com/amiralimollaei/not-enough-vulkan/releases",
         "modmenu.kofi": "https://ko-fi.com/flashyreese",
-        "modmenu.modrinth": "https://modrinth.com/mod/vulkan-extra"
+        "modmenu.modrinth": "https://modrinth.com/mod/not-enough-vulkan"
       }
     }
   },
-  "accessWidener": "vulkan-extra.accesswidener",
+  "accessWidener": "sodium-extra.accesswidener",
   "mixins": [
-    "vulkan-extra.mixins.json"
+    "sodium-extra.mixins.json",
+    "not-enough-vulkan.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.18",

@@ -2,7 +2,6 @@ package me.flashyreese.mods.sodiumextra.mixin.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.ItemFrameRenderer;
 import net.minecraft.client.renderer.entity.state.ItemFrameRenderState;

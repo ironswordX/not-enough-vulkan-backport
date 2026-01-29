@@ -24,13 +24,18 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "vulkan-extra" {
+        "not-enough-vulkan" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
@@ -52,9 +57,10 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    // VulkanMod
-    modCompileOnly "maven.modrinth:vulkanmod:93P2GSV6"
+    // Mod Menu
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+    // VulkanMod, for some reason modImplementation makes the client not launch
+    modCompileOnly "maven.modrinth:vulkanmod:${project.vulkanmod_version}"
 }
 
 processResources {

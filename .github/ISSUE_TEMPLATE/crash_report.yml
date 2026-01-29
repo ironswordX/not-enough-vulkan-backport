@@ -7,12 +7,12 @@ body:
     attributes:
       label: Make sure you are not opening a duplicate.
       options:
-        - label: "[I have searched the issue tracker](https://github.com/FlashyReese/vulkan-extra-fabric/issues?q=) and did not find an issue describing my crash."
+        - label: "[I have searched the issue tracker](https://github.com/FlashyReese/not-enough-vulkan-fabric/issues?q=) and did not find an issue describing my crash."
     validations:
       required: true
   - type: markdown
     attributes:
-      value: "Are you using the latest version of the mod? If not, try updating to see if it resolves your issue. You can [find the latest versions here](https://github.com/FlashyReese/vulkan-extra-fabric/releases)."
+      value: "Are you using the latest version of the mod? If not, try updating to see if it resolves your issue. You can [find the latest versions here](https://github.com/FlashyReese/not-enough-vulkan-fabric/releases)."
   - type: input
     id: version-mc
     attributes:
@@ -21,7 +21,7 @@ body:
     validations:
       required: true
   - type: input
-    id: version-vulkan-extra
+    id: version-not-enough-vulkan
     attributes:
       label: Vulkan Extra version.
       placeholder: ex. 0.3.2

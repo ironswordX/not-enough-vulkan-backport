@@ -18,7 +18,7 @@ public class SodiumExtraClientMod {
 
     public static Logger logger() {
         if (LOGGER == null) {
-            LOGGER = LoggerFactory.getLogger("Vulkan Extra");
+            LOGGER = LoggerFactory.getLogger("Sodium Extra");
         }
 
         return LOGGER;
@@ -34,9 +34,7 @@ public class SodiumExtraClientMod {
 
     public static CaffeineConfig mixinConfig() {
         if (MIXIN_CONFIG == null) {
-            MIXIN_CONFIG = CaffeineConfig.builder("Vulkan Extra").withSettingsKey("vulkan-extra:options")
-                    .addMixinOption("core", true, false)
-
+            MIXIN_CONFIG = CaffeineConfig.builder("Sodium Extra").withSettingsKey("sodium-extra:options")
                     .addMixinOption("animation", true)
                     .addMixinOption("biome_colors", true)
                     .addMixinOption("cloud", true)
@@ -61,13 +59,13 @@ public class SodiumExtraClientMod {
 
                     //.withLogger(SodiumExtraClientMod.logger())
                     .withInfoUrl("https://github.com/FlashyReese/sodium-extra-fabric/wiki/Configuration-File")
-                    .build(FabricLoader.getInstance().getConfigDir().resolve("vulkan-extra.properties"));
+                    .build(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra.properties"));
         }
         return MIXIN_CONFIG;
     }
 
     private static SodiumExtraGameOptions loadConfig() {
-        return SodiumExtraGameOptions.load(FabricLoader.getInstance().getConfigDir().resolve("vulkan-extra-options.json").toFile());
+        return SodiumExtraGameOptions.load(FabricLoader.getInstance().getConfigDir().resolve("sodium-extra-options.json").toFile());
     }
 
     public static void onTick(Minecraft client) {

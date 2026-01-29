@@ -38,10 +38,6 @@ public abstract class AbstractCaffeineConfigMixinPlugin implements IMixinConfigP
         String mixin = mixinClassName.substring(mixinPackageRoot().length());
         Option option = this.config.getEffectiveOptionForMixin(mixin);
 
-        if (mixin.startsWith("vulkanmod.")) {
-            return true;
-        }
-
         if (option == null) {
             throw new IllegalStateException(String.format("No options matched mixin '%s'! Mixins in this config must be under a registered option name", mixin));
         }
