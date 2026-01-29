@@ -1,4 +1,4 @@
-# Vulkan Extra
+# Not Enough Vulkan
 ![Java 17](https://img.shields.io/badge/language-Java%2017-9b599a.svg?style=flat-square)
 [![Project License](https://img.shields.io/github/license/FlashyReese/sodium-extra-fabric?style=flat-square)](LICENSE.txt)
 ![Environment: Client](https://img.shields.io/badge/environment-client-1976d2?style=flat-square)
@@ -7,7 +7,11 @@
 [![CurseForge](http://cf.way2muchnoise.eu/title/447673.svg)](https://www.curseforge.com/minecraft/mc-mods/sodium-extra)
 [![Support Server](https://img.shields.io/discord/748363294749753484.svg?color=7289da&label=FlashyReese&logo=discord&style=flat-square)](https://flashyreese.me/discord)
 
-Features that shouldn't be in VulkanMod, a fork of Sodium Extra.
+> Features that shouldn't be in VulkanMod, a fork of Sodium Extra and alternative to VulkanMod Extra, that aims to stay up to date with the latest updates and have fewer bugs.
+
+![Logo](/src/client/resources/assets/not-enough-vulkan/textures/icon.png)
+
+---
 
 ## Building from source
 ### Prerequisites
