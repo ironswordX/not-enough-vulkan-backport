@@ -15,7 +15,7 @@ import java.util.List;
 
 import static io.github.amiralimollaei.mods.notenoughvulkan.config.Options.*;
 
-@Mixin(VOptionScreen.class)
+@Mixin(value = VOptionScreen.class, remap = false)
 public class VOptionScreenMixin {
     @Shadow @Final private List<OptionPage> optionPages;
     @Inject(method = "addPages", at = @At("TAIL"))

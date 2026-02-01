@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "not-enough-vulkan",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Not Enough Vulkan",
   "description": "Features that shouldn't be in VulkanMod, a fork of Sodium Extra",
   "authors": [
@@ -42,8 +42,7 @@
       },
       "links": {
         "modmenu.crowdin": "https://crowdin.com/project/sodium-extra",
-        "modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/sodium-extra",
-        "modmenu.discord": "https://flashyreese.me/discord",
+        "modmenu.discord": "https://discord.gg/BFmZU9kUbR",
         "modmenu.donate": "https://ko-fi.com/flashyreese",
         "modmenu.github_releases": "https://github.com/amiralimollaei/not-enough-vulkan/releases",
         "modmenu.kofi": "https://ko-fi.com/flashyreese",
