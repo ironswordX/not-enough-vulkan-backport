@@ -1,5 +1,6 @@
 package io.github.amiralimollaei.mods.notenoughvulkan.mixin.core;
 
+import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import net.minecraft.network.chat.Component;
 import net.vulkanmod.config.gui.VOptionScreen;
@@ -43,5 +44,6 @@ public class VOptionScreenMixin {
     @Inject(method = "applyOptions", at = @At("TAIL"))
     void notenoughvulkan$applyOptions(CallbackInfo ci) {
         SodiumExtraClientMod.options().writeChanges();
+        NotEnoughVulkanClientMod.options().writeChanges();
     }
 }
