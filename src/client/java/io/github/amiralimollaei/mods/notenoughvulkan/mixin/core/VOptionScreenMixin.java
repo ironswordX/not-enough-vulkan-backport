@@ -23,19 +23,19 @@ public class VOptionScreenMixin {
         OptionPage othersPage = this.optionPages.getLast();
         this.optionPages.removeLast();
         this.optionPages.add(
-                new OptionPage(Component.translatable("not-enough-vulkan.option.animations").getString(), getAnimationsOpts())
+                new OptionPage(Component.translatable("sodium-extra.option.animations").getString(), getAnimationsOpts())
         );
         this.optionPages.add(
                 new OptionPage(parseVanillaString("options.particles").getString(), getParticlesOpts())
         );
         this.optionPages.add(
-                new OptionPage(Component.translatable("not-enough-vulkan.option.details").getString(), getDetailsOpts())
+                new OptionPage(Component.translatable("sodium-extra.option.details").getString(), getDetailsOpts())
         );
         this.optionPages.add(
-                new OptionPage(Component.translatable("not-enough-vulkan.option.render").getString(), getRenderOpts())
+                new OptionPage(Component.translatable("sodium-extra.option.render").getString(), getRenderOpts())
         );
         this.optionPages.add(
-                new OptionPage(Component.translatable("not-enough-vulkan.option.extras").getString(), getExtrasOpts())
+                new OptionPage(Component.translatable("sodium-extra.option.extras").getString(), getExtrasOpts())
         );
         this.optionPages.add(othersPage);
     }

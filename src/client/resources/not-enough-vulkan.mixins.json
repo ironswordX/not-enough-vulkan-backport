@@ -12,5 +12,9 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "compat.skip_wayland_patches.InputConstantsMMixin",
+    "compat.skip_wayland_patches.MinecraftMixinMixin"
+  ]
 }
