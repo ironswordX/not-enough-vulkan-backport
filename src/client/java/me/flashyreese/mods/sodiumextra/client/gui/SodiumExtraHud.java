@@ -26,10 +26,10 @@ public class SodiumExtraHud {
         if (SodiumExtraClientMod.options().extraSettings.showFps) {
             int currentFPS = FrameCounter.getInstance().getSmoothFps();
 
-            Component text = Component.translatable("not-enough-vulkan.overlay.fps", currentFPS);
+            Component text = Component.translatable("sodium-extra.overlay.fps", currentFPS);
 
             if (SodiumExtraClientMod.options().extraSettings.showFPSExtended)
-                text = Component.literal(String.format("%s %s", text.getString(), Component.translatable("not-enough-vulkan.overlay.fps_extended", this.stats.getAverageFps(), this.stats.getOnePercentLowFps(),
+                text = Component.literal(String.format("%s %s", text.getString(), Component.translatable("sodium-extra.overlay.fps_extended", this.stats.getAverageFps(), this.stats.getOnePercentLowFps(),
                         this.stats.getPointOnePercentLowFps()).getString()));
 
             this.textList.add(text);
@@ -38,16 +38,16 @@ public class SodiumExtraHud {
         if (SodiumExtraClientMod.options().extraSettings.showCoords && this.client.player != null) {
             Vec3 pos = this.client.player.position();
 
-            Component text = Component.translatable("not-enough-vulkan.overlay.coordinates", String.format("%.2f", pos.x), String.format("%.2f", pos.y), String.format("%.2f", pos.z));
+            Component text = Component.translatable("sodium-extra.overlay.coordinates", String.format("%.2f", pos.x), String.format("%.2f", pos.y), String.format("%.2f", pos.z));
             if (this.client.showOnlyReducedInfo()) {
-                text = Component.translatable("not-enough-vulkan.overlay.coordinates_unavailable");
+                text = Component.translatable("sodium-extra.overlay.coordinates_unavailable");
             }
 
             this.textList.add(text);
         }
 
         if (!SodiumExtraClientMod.options().renderSettings.lightUpdates) {
-            Component text = Component.translatable("not-enough-vulkan.overlay.light_updates");
+            Component text = Component.translatable("sodium-extra.overlay.light_updates");
             this.textList.add(text);
         }
     }
