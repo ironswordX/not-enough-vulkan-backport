@@ -47,4 +47,4 @@ We sincerely apologize. Translations are community submitted, and despite our be
 Thank you for your interest! Please [open an issue](#issues) with the [in-game Locale Code](https://minecraft.wiki/w/Language#Languages) from the linked table. We've kept the number of languages relatively small to set a reasonable starting goal, and will add more as requests come in.
 
 ## License
-Vulkan Extra is licensed under GNU LGPLv3, a free and open-source license. For more information, please see the [license file](LICENSE.txt).
+Not Enough Vulkan is licensed under GNU LGPLv3, a free and open-source license. For more information, please see the [license file](LICENSE.txt).
