@@ -16,7 +16,7 @@ public class NotEnoughVulkanClientMod {
 
     public static Logger logger() {
         if (LOGGER == null) {
-            LOGGER = LoggerFactory.getLogger("Sodium Extra");
+            LOGGER = LoggerFactory.getLogger("Not Enough Vulkan");
         }
 
         return LOGGER;
