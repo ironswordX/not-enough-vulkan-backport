@@ -3,7 +3,7 @@ package io.github.amiralimollaei.mods.notenoughvulkan.config;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
+import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import me.flashyreese.mods.sodiumextra.common.util.IdentifierSerializer;
 import net.minecraft.resources.Identifier;
 
@@ -24,18 +24,16 @@ public class NotEnoughVulkanGameOptions {
     private File file;
 
     public static NotEnoughVulkanGameOptions load(File file) {
-        NotEnoughVulkanGameOptions config;
+        NotEnoughVulkanGameOptions config = null;
 
         if (file.exists()) {
             try (FileReader reader = new FileReader(file)) {
                 config = gson.fromJson(reader, NotEnoughVulkanGameOptions.class);
             } catch (Exception e) {
-                SodiumExtraClientMod.logger().error("Could not parse config, falling back to defaults!", e);
-                config = new NotEnoughVulkanGameOptions();
+                NotEnoughVulkanClientMod.logger().error("Could not parse config, falling back to defaults!", e);
             }
-        } else {
-            config = new NotEnoughVulkanGameOptions();
         }
+        if (config == null) config = new NotEnoughVulkanGameOptions();
 
         config.file = file;
         config.writeChanges();

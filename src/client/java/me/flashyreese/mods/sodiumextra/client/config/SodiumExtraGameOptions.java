@@ -36,18 +36,16 @@ public class SodiumExtraGameOptions {
     private File file;
 
     public static SodiumExtraGameOptions load(File file) {
-        SodiumExtraGameOptions config;
+        SodiumExtraGameOptions config = null;
 
         if (file.exists()) {
             try (FileReader reader = new FileReader(file)) {
                 config = gson.fromJson(reader, SodiumExtraGameOptions.class);
             } catch (Exception e) {
                 SodiumExtraClientMod.logger().error("Could not parse config, falling back to defaults!", e);
-                config = new SodiumExtraGameOptions();
             }
-        } else {
-            config = new SodiumExtraGameOptions();
         }
+        if (config == null) config = new SodiumExtraGameOptions();
 
         config.file = file;
         config.writeChanges();
