@@ -398,8 +398,8 @@ public abstract class Options {
         );
         SwitchOption skipWaylandPatches = new SwitchOption(
                 Component.translatable("not-enough-vulkan.option.skip_wayland_patches"),
-                (value) -> notEnoughVulkanOptions.vulkanSettings.skipWaylandPatches = value,
-                () -> notEnoughVulkanOptions.vulkanSettings.skipWaylandPatches
+                (value) -> notEnoughVulkanOptions.compatSettings.skipWaylandPatches = value,
+                () -> notEnoughVulkanOptions.compatSettings.skipWaylandPatches
         );
         skipWaylandPatches.setTooltip(Component.translatable("not-enough-vulkan.option.skip_wayland_patches.tooltip"));
         skipWaylandPatches.setActivationFn(

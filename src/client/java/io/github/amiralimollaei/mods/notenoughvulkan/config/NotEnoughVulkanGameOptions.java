@@ -20,7 +20,7 @@ public class NotEnoughVulkanGameOptions {
             .setPrettyPrinting()
             .excludeFieldsWithModifiers(Modifier.PRIVATE)
             .create();
-    public final VulkanSettings vulkanSettings = new VulkanSettings();
+    public final CompatSettings compatSettings = new CompatSettings();
     private File file;
 
     public static NotEnoughVulkanGameOptions load(File file) {
@@ -59,10 +59,11 @@ public class NotEnoughVulkanGameOptions {
         }
     }
 
-    public static class VulkanSettings {
+    public static class CompatSettings {
         public boolean skipWaylandPatches;
+        public String selectedMonitor;
 
-        public VulkanSettings() {
+        public CompatSettings() {
             this.skipWaylandPatches = false;
         }
     }

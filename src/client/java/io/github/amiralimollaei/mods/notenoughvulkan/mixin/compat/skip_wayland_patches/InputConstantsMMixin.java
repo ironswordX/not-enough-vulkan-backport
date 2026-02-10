@@ -21,7 +21,7 @@ public abstract class InputConstantsMMixin {
             )
     )
     private static boolean notenoughvulkan$skipWaylandPatches(boolean original) {
-        if (NotEnoughVulkanClientMod.options().vulkanSettings.skipWaylandPatches) {
+        if (NotEnoughVulkanClientMod.options().compatSettings.skipWaylandPatches) {
             return false;
         }
         return original;
