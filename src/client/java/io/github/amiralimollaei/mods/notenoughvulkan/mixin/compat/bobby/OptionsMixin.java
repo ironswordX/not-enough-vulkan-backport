@@ -12,7 +12,8 @@ public abstract class OptionsMixin {
             method = "getGraphicsOpts",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/vulkanmod/config/option/RangeOption;<init>(Lnet/minecraft/network/chat/Component;IIILjava/util/function/Consumer;Ljava/util/function/Supplier;)V"
+                    target = "Lnet/vulkanmod/config/option/RangeOption;<init>(Lnet/minecraft/network/chat/Component;IIILjava/util/function/Consumer;Ljava/util/function/Supplier;)V",
+                    ordinal = 1
             ),
             index = 2
     )
