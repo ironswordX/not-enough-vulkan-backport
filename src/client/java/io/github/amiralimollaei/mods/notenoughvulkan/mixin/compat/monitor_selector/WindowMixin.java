@@ -3,8 +3,8 @@ package io.github.amiralimollaei.mods.notenoughvulkan.mixin.compat.monitor_selec
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.platform.Window;
+import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import io.github.amiralimollaei.mods.notenoughvulkan.compat.monitor_selector.FullscreenMonitorManager;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.config.video.WindowMode;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +21,7 @@ public class WindowMixin {
     )
     private long notenoughvulkan$updateSelectedMonitor(Operation<Long> original) {
         if (!FullscreenMonitorManager.shouldApplyMonitorSelectorPatch()) return original.call();
-        if (Initializer.CONFIG == null || Initializer.CONFIG.windowMode != WindowMode.EXCLUSIVE_FULLSCREEN.mode) return original.call();
+        if (NotEnoughVulkanClientMod.getVulkanModConfig().windowMode != WindowMode.EXCLUSIVE_FULLSCREEN.mode) return original.call();
         return FullscreenMonitorManager.getSelectedFullscreenMonitor();
     }
 }

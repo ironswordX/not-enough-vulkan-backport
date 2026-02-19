@@ -3,14 +3,17 @@ package io.github.amiralimollaei.mods.notenoughvulkan;
 import io.github.amiralimollaei.mods.notenoughvulkan.config.NotEnoughVulkanGameOptions;
 import net.caffeinemc.caffeineconfig.CaffeineConfig;
 import net.fabricmc.loader.api.FabricLoader;
+import net.vulkanmod.config.Config;
 import net.vulkanmod.config.Platform;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Path;
 import java.util.Arrays;
 
 public class NotEnoughVulkanClientMod {
     private static NotEnoughVulkanGameOptions CONFIG;
+    private static Config VKCONFIG;
     private static CaffeineConfig MIXIN_CONFIG;
     private static Logger LOGGER;
 
@@ -51,5 +54,23 @@ public class NotEnoughVulkanClientMod {
                     .build(FabricLoader.getInstance().getConfigDir().resolve("not-enough-vulkan.properties"));
         }
         return MIXIN_CONFIG;
+    }
+
+    public static Config loadVulkanModConfig(Path path) {
+        Config config = Config.load(path);
+        if (config == null) {
+            config = new Config();
+            config.write();
+        }
+
+        return config;
+    }
+
+    public static Config getVulkanModConfig() {
+        if (VKCONFIG == null) {
+            Path configPath = FabricLoader.getInstance().getConfigDir().resolve("vulkanmod_settings.json");
+            VKCONFIG = loadVulkanModConfig(configPath);
+        }
+        return VKCONFIG;
     }
 }

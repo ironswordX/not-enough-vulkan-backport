@@ -1,7 +1,6 @@
 package io.github.amiralimollaei.mods.notenoughvulkan.compat.monitor_selector;
 
 import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
-import net.vulkanmod.Initializer;
 import net.vulkanmod.config.Config;
 import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
@@ -69,7 +68,7 @@ public class FullscreenMonitorManager {
     }
 
     public static long findFullscreenMonitorHandle() {
-        Config config = Initializer.CONFIG;
+        Config config = NotEnoughVulkanClientMod.getVulkanModConfig();
         if (config == null) return GLFW.glfwGetPrimaryMonitor();
         return Arrays.stream(FullscreenMonitorManager.getMonitors())
                 .filter(v -> {
