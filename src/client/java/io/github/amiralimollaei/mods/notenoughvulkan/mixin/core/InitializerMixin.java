@@ -11,6 +11,9 @@ import java.nio.file.Path;
 
 @Mixin(value = Initializer.class, remap = false)
 public abstract class InitializerMixin {
+    /// @author amiralimollaei
+    /// @reason VulkanMod does not load its configuration soon enough for the monitor selector feature to work properly
+    /// so we replace it with our own code that loads the configuration on demand
     @Redirect(
             method = "onInitializeClient",
             at = @At(
