@@ -45,7 +45,7 @@ public class SodiumExtraClientMod {
                     .addMixinOption("light_updates", true)
                     .addMixinOption("particle", true)
                     .addMixinOption("prevent_shaders", true)
-                    .addMixinOption("reduce_resolution_on_mac", true)
+                    .addMixinOption("reduce_resolution_on_mac", false, false)
                     .addMixinOption("render", true)
                     .addMixinOption("render.block", true)
                     .addMixinOption("render.block.entity", true)

@@ -47,8 +47,9 @@ public class NotEnoughVulkanClientMod {
                     .addMixinOption("core", true, false)
                     .addMixinOption("compat", true)
                     .addMixinOption("compat.bobby", packageExists("de.johni0702.minecraft.bobby"), false)
-                    .addMixinOption("compat.skip_wayland_patches", Platform.isWayLand())
+                    .addMixinOption("compat.skip_wayland_patches", true)
                     .addMixinOption("compat.monitor_selector", true)
+                    .addMixinOption("compat.force_x11", true)
 
                     //.withInfoUrl("https://github.com/amiralimollaei/not-enough-vulkan/wiki/Configuration-File")
                     .build(FabricLoader.getInstance().getConfigDir().resolve("not-enough-vulkan.properties"));

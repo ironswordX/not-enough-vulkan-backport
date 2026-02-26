@@ -23,7 +23,6 @@
     "particle.MixinLevelRenderer",
     "particle.MixinParticleEngine",
     "prevent_shaders.MixinGameRenderer",
-    "reduce_resolution_on_mac.MixinWindow",
     "render.block.entity.MixinBeaconRenderer",
     "render.block.entity.MixinEnchantingTableBlockEntityRenderer",
     "render.block.entity.MixinPistonBlockEntityRenderer",

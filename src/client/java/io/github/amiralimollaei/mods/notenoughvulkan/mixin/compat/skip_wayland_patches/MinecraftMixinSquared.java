@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value = Minecraft.class, remap = false, priority = 1500)
-public abstract class MinecraftMixinMixin {
+public abstract class MinecraftMixinSquared {
     @TargetHandler(
             mixin = "net.vulkanmod.mixin.wayland.MinecraftMixin",
             name = "bypassWaylandIcon"
@@ -21,7 +21,7 @@ public abstract class MinecraftMixinMixin {
             )
     )
     private static boolean notenoughvulkan$skipWaylandPatches(boolean original) {
-        if (NotEnoughVulkanClientMod.options().compatSettings.skipWaylandPatches) {
+        if (NotEnoughVulkanClientMod.options().compatSettings.skipWaylandPatches || NotEnoughVulkanClientMod.options().compatSettings.forceX11) {
             return false;
         }
         return original;

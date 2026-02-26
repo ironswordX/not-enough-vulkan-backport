@@ -8,12 +8,14 @@
   "client": [
     "compat.bobby.FakeChunkManagerMixin",
     "compat.bobby.OptionsMixin",
+    "compat.force_x11.InitializerMixin",
     "compat.monitor_selector.OptionAccessor",
     "compat.monitor_selector.OptionsMixin",
     "compat.monitor_selector.VideoModeManagerMixin",
     "compat.monitor_selector.WindowMixin",
     "compat.skip_wayland_patches.InputConstantsMMixin",
-    "compat.skip_wayland_patches.MinecraftMixinMixin",
+    "compat.skip_wayland_patches.MinecraftMixinSquared",
+    "compat.skip_wayland_patches.WindowMixinSquared",
     "core.InitializerMixin",
     "core.VOptionScreenMixin"
   ],
