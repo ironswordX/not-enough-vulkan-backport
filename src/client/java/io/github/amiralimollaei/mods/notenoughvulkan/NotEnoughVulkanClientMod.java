@@ -45,7 +45,7 @@ public class NotEnoughVulkanClientMod {
         if (MIXIN_CONFIG == null) {
             MIXIN_CONFIG = CaffeineConfig.builder("Not Enough Vulkan").withSettingsKey("not-enough-vulkan:options")
                     .addMixinOption("core", true, false)
-                    .addMixinOption("core.compact_gui", true)
+                    .addMixinOption("core.compact_vk_options", true)
                     .addMixinOption("compat", true)
                     .addMixinOption("compat.bobby", packageExists("de.johni0702.minecraft.bobby"), false)
                     .addMixinOption("compat.skip_wayland_patches", true)
