@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "not-enough-vulkan-backport",
-  "version": "1.4.0",
-  "name": "Not Enough Vulkan",
-  "description": "Backport of Not Enough Vulkan, held together by hopes, dreams, and scotch tape.",
+  "version": "1.0.0",
+  "name": "Not Enough Vulkan Backport",
+  "description": "Unofficial backport of Not Enough Vulkan, held together by hopes, dreams, and scotch tape.",
   "authors": [
     {
       "name": "FlashyReese",
@@ -34,9 +34,9 @@
     "ironswordX"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/not-enough-vulkan",
-    "sources": "https://github.com/amiralimollaei/not-enough-vulkan",
-    "issues": "https://github.com/amiralimollaei/not-enough-vulkan/issues"
+    "homepage": "https://modrinth.com/project/nev-backport",
+    "sources": "https://github.com/ironswordx/not-enough-vulkan-backport/",
+    "issues": "https://github.com/ironswordx/not-enough-vulkan-backport/issues"
   },
   "license": "LGPLv3",
   "icon": "assets/not-enough-vulkan/textures/icon.png",
@@ -49,11 +49,10 @@
       },
       "links": {
         "modmenu.crowdin": "https://crowdin.com/project/sodium-extra",
-        "modmenu.discord": "https://discord.gg/BFmZU9kUbR",
         "modmenu.donate": "https://ko-fi.com/flashyreese",
-        "modmenu.github_releases": "https://github.com/amiralimollaei/not-enough-vulkan/releases",
+        "modmenu.github_releases": "https://github.com/ironswordx/not-enough-vulkan-backport/releases",
         "modmenu.kofi": "https://ko-fi.com/flashyreese",
-        "modmenu.modrinth": "https://modrinth.com/mod/not-enough-vulkan"
+        "modmenu.modrinth": "https://modrinth.com/project/nev-backport"
       }
     }
   },
@@ -68,6 +67,7 @@
     "minecraft": ">=1.21.10"
   },
   "breaks": {
-    "sodium": ">0.0.0"
+    "sodium": ">0.0.0",
+    "sodium-extra": ">0.0.0" 
   }
 }

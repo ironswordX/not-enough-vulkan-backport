@@ -37,7 +37,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "not-enough-vulkan" {
+        "not-enough-vulkan-backport" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
