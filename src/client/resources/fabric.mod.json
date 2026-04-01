@@ -6,6 +6,12 @@
   "description": "Unofficial backport of Not Enough Vulkan, held together by hopes, dreams, and scotch tape.",
   "authors": [
     {
+      "name": "ironswordX",
+      "contact": {
+        "homepage": "https://github.com/ironswordX"
+      }
+    },
+    {
       "name": "FlashyReese",
       "contact": {
         "homepage": "https://flashyreese.me"
@@ -15,12 +21,6 @@
       "name": "amiralimollaei",
       "contact": {
         "homepage": "https://amiralimollaei.github.io"
-      }
-    },
-    {
-      "name": "ironswordX",
-      "contact": {
-        "homepage": "https://github.com/ironswordX"
       }
     }
   ],
