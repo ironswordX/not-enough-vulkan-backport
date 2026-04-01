@@ -2,7 +2,6 @@ package io.github.amiralimollaei.mods.notenoughvulkan.compat.monitor_selector;
 
 import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import net.vulkanmod.config.Config;
-import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class FullscreenMonitorManager {
         return arr;
     }
 
-    public static @Nullable Long[] getMonitors() {
+    public static Long[] getMonitors() {
         if (monitors == null) {
             monitors = populateMonitors();
         }

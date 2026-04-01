@@ -6,10 +6,9 @@
   "refmap": "not-enough-vulkan.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "animation.MixinSpriteContentsAnimationState",
-    "animation.MixinTextureAtlas",
+    "animation.MixinSpriteAtlasTexture",
     "biome_colors.MixinBiomeColors",
-    "cloud.MixinLevelRenderer",
+    "cloud.MixinDimensionType",
     "fog.MixinFogEnvironment",
     "fog.MixinFogRenderer",
     "fps.MixinGameRenderer",
@@ -30,7 +29,7 @@
     "render.entity.MixinLivingEntityRenderer",
     "render.entity.MixinPaintingEntityRenderer",
     "sky.MixinSkyRenderer",
-    "sky_colors.MixinAtmosphericFogEnvironment",
+    "sky_colors.MixinBiome",
     "steady_debug_hud.MixinDebugScreenOverlay",
     "toasts.MixinToastManager"
   ],

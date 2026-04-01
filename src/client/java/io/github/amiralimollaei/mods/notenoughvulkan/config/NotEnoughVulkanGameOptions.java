@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import me.flashyreese.mods.sodiumextra.common.util.IdentifierSerializer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import java.io.File;
 import java.io.FileReader;
@@ -15,7 +15,7 @@ import java.lang.reflect.Modifier;
 
 public class NotEnoughVulkanGameOptions {
     private static final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(Identifier.class, new IdentifierSerializer())
+            .registerTypeAdapter(ResourceLocation.class, new IdentifierSerializer())
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .setPrettyPrinting()
             .excludeFieldsWithModifiers(Modifier.PRIVATE)

@@ -9,7 +9,7 @@ import net.minecraft.client.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.FogType;
 import net.vulkanmod.config.Platform;
 import net.vulkanmod.config.gui.OptionBlock;
@@ -30,7 +30,7 @@ public abstract class Options {
         return Component.literal(Component.translatable(key).getString().replaceAll("§.", ""));
     }
 
-    private static Component translatableName(Identifier identifier, String category) {
+    private static Component translatableName(ResourceLocation identifier, String category) {
         String key = identifier.toLanguageKey("options.".concat(category));
         Component translatable = Component.translatable(key);
 
@@ -44,7 +44,7 @@ public abstract class Options {
         return translatable;
     }
 
-    private static Component translatableTooltip(Identifier identifier, String category) {
+    private static Component translatableTooltip(ResourceLocation identifier, String category) {
         String key = identifier.toLanguageKey("options.".concat(category)).concat(".tooltip");
         Component translatable = Component.translatable(key);
 
@@ -161,7 +161,7 @@ public abstract class Options {
         };
     }
 
-    private static SwitchOption newParticleSwitchOption(Identifier id) {
+    private static SwitchOption newParticleSwitchOption(ResourceLocation id) {
         SwitchOption switchOption = new SwitchOption(
                 translatableName(id, "particles"),
                 value -> sodiumExtraOptions.particleSettings.otherMap.put(id, value),

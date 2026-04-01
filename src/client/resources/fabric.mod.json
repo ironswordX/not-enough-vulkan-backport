@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "not-enough-vulkan",
+  "id": "not-enough-vulkan-backport",
   "version": "1.4.0",
   "name": "Not Enough Vulkan",
-  "description": "Features that shouldn't be in VulkanMod, a fork of Sodium Extra",
+  "description": "Backport of Not Enough Vulkan, held together by hopes, dreams, and scotch tape.",
   "authors": [
     {
       "name": "FlashyReese",
@@ -16,6 +16,12 @@
       "contact": {
         "homepage": "https://amiralimollaei.github.io"
       }
+    },
+    {
+      "name": "ironswordX",
+      "contact": {
+        "homepage": "https://github.com/ironswordX"
+      }
     }
   ],
   "contributors": [
@@ -24,7 +30,8 @@
     "EatMyVenom",
     "HarvelsX",
     "Kichura",
-    "Madis0"
+    "Madis0",
+    "ironswordX"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/not-enough-vulkan",
@@ -58,7 +65,7 @@
   "depends": {
     "fabricloader": ">=0.18",
     "vulkanmod": ">=0.5.7",
-    "minecraft": ">=1.21.11"
+    "minecraft": ">=1.21.10"
   },
   "breaks": {
     "sodium": ">0.0.0"

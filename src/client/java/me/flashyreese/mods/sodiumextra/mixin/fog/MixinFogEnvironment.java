@@ -3,6 +3,7 @@ package me.flashyreese.mods.sodiumextra.mixin.fog;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import me.flashyreese.mods.sodiumextra.client.fog.FogEnvironmentExtended;
 import me.flashyreese.mods.sodiumextra.client.config.FogTypeConfig;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.FogEnvironment;

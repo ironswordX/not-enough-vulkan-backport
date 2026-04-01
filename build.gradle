@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+    id 'fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -55,6 +55,7 @@ dependencies {
             parchment "org.parchmentmc.data:parchment-${minecraft_version}:${project.parchment_version}@zip"
         }
     }
+    
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.7-beta.1")))

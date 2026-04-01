@@ -8,7 +8,7 @@ import it.unimi.dsi.fastutil.objects.Object2BooleanArrayMap;
 import me.flashyreese.mods.sodiumextra.client.SodiumExtraClientMod;
 import me.flashyreese.mods.sodiumextra.common.util.IdentifierSerializer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.FogType;
 import org.lwjgl.glfw.GLFW;
 
@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class SodiumExtraGameOptions {
     private static final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(Identifier.class, new IdentifierSerializer())
+            .registerTypeAdapter(ResourceLocation.class, new IdentifierSerializer())
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .setPrettyPrinting()
             .excludeFieldsWithModifiers(Modifier.PRIVATE)
@@ -159,7 +159,7 @@ public class SodiumExtraGameOptions {
         public boolean blockBreak;
         public boolean blockBreaking;
         @SerializedName("other")
-        public Map<Identifier, Boolean> otherMap;
+        public Map<ResourceLocation, Boolean> otherMap;
 
         public ParticleSettings() {
             this.particles = true;
