@@ -10,13 +10,13 @@
 ## Important Notes
 
 > [!NOTE]
-> Note 1: unfortunately since about the start of March 2026, Iran lost access to the internet and I lost the needed tools to develop Minecraft mods, as I write this, it is now 18th of April, I am truly sorry for my absence in the past 50 days, I had no ways to maintain my online presence, I know that Minecraft 26.1 is out now, but unfortunately I cannot update any of my mods to that version, I cannot even try that version, until internet access becomes available.
+> **Note 1**: Unfortunately, since the beginning of March 2026, I have lost internet access in Iran. This has also cost me the tools I need to develop my mods. As of April 18th, I have been absent for 50 days, and I am truly sorry; I had no way to stay online. I know Minecraft 26.1 is out, but I cannot update or even test my mods until I have internet access again.
 
 > [!NOTE]
-> Note 2: if my access to github.com remains persistent, you can contact me regarding my projects, by creating a new issue, as I cannot access my Gmail.
+> **Note 2**: If my access to github.com remains persistent, please feel free to contact me via GitHub Issues, as I don't have access to my Gmail.
 
 > [!NOTE]
-> Note 3: feel free to fork my mods and update them yourself.
+> **Note 3**: Please feel free to fork my mods and update them yourselves!
 
 ---
 
