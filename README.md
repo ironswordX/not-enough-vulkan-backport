@@ -13,7 +13,7 @@
 > **Note 1**: Unfortunately, since the beginning of March 2026, I have lost internet access in Iran. This has also cost me the tools I need to develop my mods. As of April 18th, I have been absent for 50 days, and I am truly sorry; I had no way to stay online. I know Minecraft 26.1 is out, but I cannot update my mods until I have internet access again.
 
 > [!NOTE]
-> **Note 2**: If my access to github.com remains persistent, please feel free to contact me via GitHub [Discussions](https://github.com/amiralimollaei/not-enough-vulkan/discussions), in case that doesn't work, ~~contact me via Gmail~~ Update: Google has also banned all it's services in Iran, I can't even access Gmail, even though the website is Whitelisted.
+> **Note 2**: If my access to github.com remains persistent, please feel free to contact me via GitHub [Discussions](https://github.com/amiralimollaei/not-enough-vulkan/discussions), in case that doesn't work, contact me via Gmail, and if that doens't work, then I guess we'll have to wait.
 
 > [!NOTE]
 > **Note 3**: Please feel free to fork my mods and update them yourselves!
