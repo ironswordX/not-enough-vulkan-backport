@@ -22,7 +22,7 @@
 
 > Features that shouldn't be in VulkanMod, a fork of Sodium Extra and alternative to VulkanMod Extra, that aims to stay up to date with the latest updates and have fewer bugs.
 
-![Logo](/src/client/resources/assets/not-enough-vulkan/textures/icon.png)
+![Screenshot](assets/2026-04-25_14.34.07.png)
 
 ---
 
