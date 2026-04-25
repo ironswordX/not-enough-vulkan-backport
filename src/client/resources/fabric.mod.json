@@ -34,7 +34,11 @@
   "license": "LGPLv3",
   "icon": "assets/not-enough-vulkan/textures/icon.png",
   "environment": "client",
-  "entrypoints": {},
+  "entrypoints": {
+    "client": [
+      "io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanModInitializer"
+    ]
+  },
   "custom": {
     "modmenu": {
       "parent": {

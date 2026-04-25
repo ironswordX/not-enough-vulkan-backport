@@ -16,8 +16,6 @@
     "compat.skip_wayland_patches.InputConstantsMMixin",
     "compat.skip_wayland_patches.MinecraftMixinSquared",
     "compat.skip_wayland_patches.WindowMixinSquared",
-    "core.InitializerMixin",
-    "core.VOptionScreenMixin",
     "core.compact_vk_options.SwitchOptionWidgetMixin",
     "core.compact_vk_options.VOptionListMixin",
     "core.compact_vk_options.VOptionScreenMixin"

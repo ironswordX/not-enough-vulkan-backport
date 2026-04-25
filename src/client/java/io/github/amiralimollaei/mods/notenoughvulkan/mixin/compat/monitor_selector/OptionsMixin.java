@@ -27,7 +27,7 @@ public class OptionsMixin {
     @Shadow
     private static Config config;
 
-    /// modified from [pull #618](https://github.com/xCollateral/VulkanMod/pull/618)
+    /*/// modified from [pull #618](https://github.com/xCollateral/VulkanMod/pull/618)
     @ModifyArg(
             method = "getVideoOpts",
             at = @At(
@@ -72,5 +72,5 @@ public class OptionsMixin {
                 monitorOption.setNewValue(((OptionAccessor<Long>) monitorOption).getValue());
         });
         return ArrayUtils.add(options, 0, monitorOption);
-    }
+    }*/
 }
