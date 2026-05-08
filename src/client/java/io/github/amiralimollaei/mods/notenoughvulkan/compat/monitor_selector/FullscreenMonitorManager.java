@@ -3,7 +3,6 @@ package io.github.amiralimollaei.mods.notenoughvulkan.compat.monitor_selector;
 import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 import net.vulkanmod.config.Config;
 import net.vulkanmod.config.video.VideoModeManager;
-import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class FullscreenMonitorManager {
     private static long selectedFullscreenMonitor = -1;
 
-    public static @Nullable Long[] getMonitors() {
+    public static Long[] getMonitors() {
         return VideoModeManager.getMonitors().keySet().toArray(Long[]::new);
     }
 

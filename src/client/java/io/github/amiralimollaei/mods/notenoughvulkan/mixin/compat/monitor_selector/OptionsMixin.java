@@ -9,7 +9,6 @@ import net.vulkanmod.config.video.VideoModeManager;
 import net.vulkanmod.config.video.VideoModeSet;
 import net.vulkanmod.config.video.WindowMode;
 import org.apache.commons.lang3.ArrayUtils;
-import org.jspecify.annotations.NonNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -41,7 +40,7 @@ public class OptionsMixin {
     }
 
     @Unique
-    private static Option<?> @NonNull [] insertMonitorSelectorOption(Option<?>[] options) {
+    private static Option<?>[] insertMonitorSelectorOption(Option<?>[] options) {
         CyclingOption<Long> monitorOption = new CyclingOption<Long>(
                 Component.translatable("not-enough-vulkan.option.monitor_selector"),
                 FullscreenMonitorManager.getMonitors(),
