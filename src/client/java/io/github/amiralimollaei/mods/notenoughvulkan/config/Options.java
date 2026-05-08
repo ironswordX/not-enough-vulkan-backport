@@ -24,6 +24,7 @@ public abstract class Options {
     static SodiumExtraGameOptions sodiumExtraOptions = SodiumExtraClientMod.options();
     static NotEnoughVulkanGameOptions notEnoughVulkanOptions = NotEnoughVulkanClientMod.options();
     static Minecraft minecraft = Minecraft.getInstance();
+    static boolean shouldReloadAssets;
 
     public static Component parseVanillaString(String key) {
         // Strip formatting codes like "§a"
@@ -80,35 +81,65 @@ public abstract class Options {
         return translated;
     }
 
+    public static void onSave() {
+        if (shouldReloadAssets) {
+            var client = Minecraft.getInstance();
+            client.updateMaxMipLevel(client.options.mipmapLevels().get());
+            client.delayTextureReload();
+            shouldReloadAssets = false;
+        }
+    }
+
     public static OptionBlock[] getAnimationsOpts() {
         return new OptionBlock[]{
                 new OptionBlock("", new Option[]{
                         new SwitchOption(parseVanillaString("gui.socialInteractions.tab_all"),
-                                value -> sodiumExtraOptions.animationSettings.animation = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.animation = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.animation)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animations_all.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.water"),
-                                value -> sodiumExtraOptions.animationSettings.water = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.water = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.water)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animate_water.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.lava"),
-                                value -> sodiumExtraOptions.animationSettings.animation = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.lava = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.lava)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animate_lava.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.fire"),
-                                value -> sodiumExtraOptions.animationSettings.animation = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.fire = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.fire)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animate_fire.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.nether_portal"),
-                                value -> sodiumExtraOptions.animationSettings.animation = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.portal = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.portal)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animate_portal.tooltip")),
                         new SwitchOption(parseVanillaString("sodium-extra.option.block_animations"),
-                                value -> sodiumExtraOptions.animationSettings.blockAnimations = value,
-                                () -> sodiumExtraOptions.animationSettings.portal)
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.blockAnimations = value;
+                                    shouldReloadAssets = true;
+                                },
+                                () -> sodiumExtraOptions.animationSettings.blockAnimations)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.block_animations.tooltip")),
                         new SwitchOption(parseVanillaString("block.minecraft.sculk_sensor"),
-                                value -> sodiumExtraOptions.animationSettings.sculkSensor = value,
+                                value -> {
+                                    sodiumExtraOptions.animationSettings.sculkSensor = value;
+                                    shouldReloadAssets = true;
+                                },
                                 () -> sodiumExtraOptions.animationSettings.sculkSensor)
                                 .setTooltip((v) -> Component.translatable("sodium-extra.option.animate_sculk_sensor.tooltip")),
                 })

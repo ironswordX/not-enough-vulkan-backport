@@ -18,6 +18,7 @@ public class NotEnoughVulkanModInitializer implements ClientModInitializer {
                         () -> ResourceLocation.fromNamespaceAndPath("not-enough-vulkan", "textures/icon.png"),
                         Options::getModOptions,
                         () -> {
+                            Options.onSave();
                             SodiumExtraClientMod.options().writeChanges();
                             NotEnoughVulkanClientMod.options().writeChanges();
                         }
