@@ -1,7 +1,5 @@
 # Not Enough Vulkan Backport
 > This mod is an unofficial backport of the mod Not Enough Vulkan, modified to work on versions lower than 1.21.11 (the only version that Not Enough Vulkan currently supports)
->
-> **NOTICE:** The original mod author has made their [own fork of this backport](https://github.com/amiralimollaei/not-enough-vulkan-backport), however all they did was update it to the latest version. If you're looking for a 1.21.10 version of the mod, DO NOT use their version.
 
 ![Logo](/src/client/resources/assets/not-enough-vulkan/textures/icon.png)
 
