@@ -6,7 +6,7 @@ import net.vulkanmod.config.gui.ModSettingsRegistry;
 import net.vulkanmod.config.gui.ModSettingsEntry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import io.github.amiralimollaei.mods.notenoughvulkan.config.Options;
 
 public class NotEnoughVulkanModInitializer implements ClientModInitializer {
@@ -15,7 +15,7 @@ public class NotEnoughVulkanModInitializer implements ClientModInitializer {
         ModSettingsRegistry.INSTANCE.addModEntry(
                 new ModSettingsEntry(
                         Component.literal("NEV").withStyle(ChatFormatting.RED),
-                        () -> Identifier.fromNamespaceAndPath("not-enough-vulkan", "textures/icon.png"),
+                        () -> ResourceLocation.fromNamespaceAndPath("not-enough-vulkan", "textures/icon.png"),
                         Options::getModOptions,
                         () -> {
                             SodiumExtraClientMod.options().writeChanges();
