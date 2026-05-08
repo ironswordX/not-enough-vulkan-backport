@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public abstract class MixinFogEnvironment implements FogEnvironmentExtended {
 
     @Override
-    public void sodium_extra$applyFogSettings(FogType fogType, FogData fogData, Entity entity, BlockPos blockPos, ClientLevel level, float viewDistance) {
+    public void sodium_extra$applyFogSettings(FogType fogType, FogData fogData, Entity entity, BlockPos blockPos, ClientLevel level, float viewDistance, DeltaTracker deltaTracker) {
         FogTypeConfig config = SodiumExtraClientMod.options().renderSettings.fogTypeConfig.computeIfAbsent(fogType, k -> new FogTypeConfig());
 
         if (!SodiumExtraClientMod.options().renderSettings.globalFog || !config.enable) {

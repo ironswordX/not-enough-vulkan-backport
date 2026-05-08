@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.not-enough-vulkan": "Not Enough Vulkan 的目標是將 OptiFine 大部分的華麗視覺效果選項帶到 Sodium；此外還提供一些功能，如視覺錯誤修復和其他在 Sodium 上尚未可用的效能選項。",
-  "modmenu.summaryTranslation.not-enough-vulkan": "不應該出現在 VulkanMod 的功能。",
+  "modmenu.descriptionTranslation.not-enough-vulkan": "Not Enough Vulkan 旨在將大部分 OptiFine 的視覺特效選項引入 VulkanMod；同時提供一些如視覺錯誤修復與其他 VulkanMod 尚未具備的效能選項等功能。",
+  "modmenu.summaryTranslation.not-enough-vulkan": "不應出現在 VulkanMod 中的功能。",
   "options.dimensions.minecraft.overworld": "主世界",
   "options.dimensions.minecraft.the_end": "終界",
   "options.dimensions.minecraft.the_nether": "地獄",
@@ -374,5 +374,9 @@
   "sodium-extra.overlay.fps": "%s FPS",
   "sodium-extra.overlay.fps_extended": "（平均 %s / 1%% 最低 %s / 0.1%% 最低 %s）",
   "sodium-extra.overlay.light_updates": "照明更新已停用",
-  "sodium-extra.units.ticks": "%s 刻"
+  "sodium-extra.units.ticks": "%s 刻",
+  "not-enough-vulkan.option.skip_wayland_patches": "跳過 Wayland 修補程式",
+  "not-enough-vulkan.option.skip_wayland_patches.tooltip": "跳過 Linux 上的 Wayland 相容性修補程式，以啟用自訂的 GLFW 解決方案（僅在使用 Wayland 時可用），某些效果需要重新啟動遊戲。",
+  "not-enough-vulkan.option.monitor_selector": "全螢幕顯示器",
+  "not-enough-vulkan.option.monitor_selector.tooltip": "遊戲處於全螢幕模式時將使用的顯示器"
 }

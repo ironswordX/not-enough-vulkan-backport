@@ -1,13 +1,9 @@
 # Not Enough Vulkan Backport
-> This mod is an unofficial backport of the mod Not Enough Vulkan, modified to work on versions lower than 1.21.11 (the only version that Not Enough Vulkan currently supports)
+> This mod is an official fork of an unofficial backport of my mod Not Enough Vulkan, modified to work on 1.21.10, and VulkanMod 0.6.3+
 
 ![Logo](/src/client/resources/assets/not-enough-vulkan/textures/icon.png)
 
 ---
-
-# ⚠️ DISCLAIMER ⚠️
-
-This mod is not guaranteed to be stable, as it's a very hacky solution to get the mod to run on versions older than 1.21.11. This is due to the fact that [Sodium Extra](https://github.com/FlashyReese/sodium-extra/) had a large refactor between 1.21.10 and 1.21.11. 
 
 ## Building from source
 ### Prerequisites
