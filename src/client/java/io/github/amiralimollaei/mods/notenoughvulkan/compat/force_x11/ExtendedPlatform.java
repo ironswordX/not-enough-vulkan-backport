@@ -6,13 +6,14 @@ import org.lwjgl.glfw.GLFW;
 import static net.vulkanmod.Initializer.LOGGER;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.glfw.GLFW.GLFW_ANY_PLATFORM;
+import io.github.amiralimollaei.mods.notenoughvulkan.NotEnoughVulkanClientMod;
 
 public class ExtendedPlatform extends Platform {
     private static final int specialActivePlat = specialGetSupportedPlat();
 
     private static int specialGetSupportedPlat() {
         int activePlat = Platform.getActivePlat();
-        if (Platform.isGnome() && activePlat == GLFW_PLATFORM_WAYLAND) {
+        if (Platform.isGnome() && activePlat == GLFW_PLATFORM_WAYLAND && NotEnoughVulkanClientMod.options().compatSettings.forceX11) {
             return GLFW_PLATFORM_X11;
         }
         return activePlat; //Linux Or Android
