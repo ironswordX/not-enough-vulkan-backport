@@ -58,13 +58,6 @@ dependencies {
     
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Source - https://stackoverflow.com/a/68048284
-    // Posted by CodeWithVikas
-    // Retrieved 2026-05-08, License - CC BY-SA 4.0
-
-    implementation 'org.jetbrains:annotations:16.0.2'
-
-
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.7-beta.1")))
 
     // Fabric API. This is technically optional, but you probably want it anyway.
@@ -74,7 +67,7 @@ dependencies {
     // VulkanMod, for some reason modImplementation makes the client not launch
     modImplementation "maven.modrinth:vulkanmod:${project.vulkanmod_version}"
     // Bobby compatibility
-    // modCompileOnly "maven.modrinth:bobby:${project.bobby_version}"
+    modImplementation "maven.modrinth:bobby:${project.bobby_version}"
 }
 
 processResources {
