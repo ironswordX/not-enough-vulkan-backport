@@ -1,3 +1,7 @@
+# !!! ARCHIVED !!!
+
+This version of the backport is no longer going to be maintained. https://github.com/amiralimollaei/not-enough-vulkan-backport will be used from now on.
+
 # Not Enough Vulkan Backport
 > This mod is a backport of [amiralimollaei](https://github.com/amiralimollaei)'s Not Enough Vulkan mod, modified to work on 1.21.10, and VulkanMod 0.6.3+
 
