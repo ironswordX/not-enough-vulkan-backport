@@ -1,6 +1,6 @@
 package io.github.amiralimollaei.mods.notenoughvulkan.mixin.compat.bobby;
 
-import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+/*import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import de.johni0702.minecraft.bobby.FakeChunkManager;
 import net.minecraft.world.level.chunk.LevelChunk;
@@ -23,4 +23,4 @@ public abstract class FakeChunkManagerMixin {
         if (unloaded) ChunkStatusMap.INSTANCE.resetChunkStatus(x, z, ChunkStatusMap.CHUNK_READY);
         return unloaded;
     }
-}
+}*/

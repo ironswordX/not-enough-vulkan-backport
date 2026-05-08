@@ -1,6 +1,6 @@
 package io.github.amiralimollaei.mods.notenoughvulkan.mixin.compat.bobby;
 
-import de.johni0702.minecraft.bobby.Bobby;
+/*import de.johni0702.minecraft.bobby.Bobby;
 import net.vulkanmod.config.option.Options;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,4 +20,4 @@ public abstract class OptionsMixin {
     private static int notenoughvulkan$increaseMaxRenderDistance(int maxRenderDistance) {
         return Bobby.getInstance().getConfig().getMaxRenderDistance();
     }
-}
+}*/
