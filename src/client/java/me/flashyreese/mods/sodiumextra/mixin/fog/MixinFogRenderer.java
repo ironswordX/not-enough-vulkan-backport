@@ -31,7 +31,7 @@ public class MixinFogRenderer {
     public void postFogSetup(Camera camera, int renderDistance, boolean thickFog, DeltaTracker deltaTracker, float f, ClientLevel level, CallbackInfoReturnable<Vector4f> cir, float g, Vector4f vector4f, float h, FogType fogType, Entity entity, FogData fogData) {
         for (FogEnvironment fogEnvironment : FOG_ENVIRONMENTS) {
             if (fogEnvironment.isApplicable(fogType, entity) && fogEnvironment instanceof FogEnvironmentExtended fogEnvironmentExtended) {
-                fogEnvironmentExtended.sodium_extra$applyFogSettings(fogType, fogData, entity, camera.getBlockPosition(), level, h);
+                fogEnvironmentExtended.sodium_extra$applyFogSettings(fogType, fogData, entity, camera.getBlockPosition(), level, h, deltaTracker);
                 break;
             }
         }
