@@ -65,7 +65,7 @@ dependencies {
     // Mod Menu
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     // VulkanMod, for some reason modImplementation makes the client not launch
-    modCompileOnly "maven.modrinth:vulkanmod:${project.vulkanmod_version}"
+    modImplementation "maven.modrinth:vulkanmod:${project.vulkanmod_version}"
     // Bobby compatibility
     modCompileOnly "maven.modrinth:bobby:${project.bobby_version}"
 }
